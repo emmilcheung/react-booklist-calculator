@@ -6,6 +6,7 @@ export const Header = () => {
         .then(response => response.json())
         .then(json => console.log(json))
     }
+    componentDidMount()
     return (
         <h2>
             Expense Tracker
