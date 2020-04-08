@@ -6,7 +6,7 @@ export const TransactionList = () => {
     const {transactions, changeDiscount} = useContext(GlobalContext);
     return (
         <>  <div>                
-                <h3>書本</h3>
+                <h3>Books</h3>
                 <button onClick={() => changeDiscount(0)} className="discont-btn">-0%</button>
                 <button onClick={() => changeDiscount(0.05)} className="discont-btn">-5%</button>
                 <button onClick={() => changeDiscount(0.09)} className="discont-btn">-9%</button>
