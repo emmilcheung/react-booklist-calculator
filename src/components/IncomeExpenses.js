@@ -3,7 +3,8 @@ import {GlobalContext} from '../context/GlobalState';
 
 export const IncomeExpenses = () => {
   const {transactions, discount} = useContext(GlobalContext)
-  const amounts = transactions.map(transcation => transcation.amount);
+  const amounts = transactions.filter(transaction => transaction.isChosen === true)
+                              .map(transaction => transaction.amount);
   const income = amounts.filter(item => item > 0)
                         .reduce((acc,item) => (acc += item * (1-discount)), 0)
                         .toFixed(2)

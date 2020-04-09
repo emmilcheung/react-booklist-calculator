@@ -15,8 +15,8 @@ export const AddTranscation = () => {
         const newTranscation = {
             id : Math.floor(Math.random() * 100000000),
             text,
-            amount : +amount
-
+            amount : +amount,
+            isChosen : true
         }
         addTransaction(newTranscation)
 

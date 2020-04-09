@@ -1,23 +1,9 @@
 import React, {createContext, useReducer} from 'react';
 import AppReducer from './AppReducer';
+import data from '../data/initialState.json';
 
 //Initial state
-const initialState ={
-    transactions :[
-          { id: 1, text: 'Flower', amount: -20 },
-          { id: 2, text: 'Salary', amount: 300 },
-          { id: 3, text: 'Book', amount: -10 },
-          { id: 4, text: 'Camera', amount: 150 },
-          { id: 5, text: 'Camera', amount: 150 },
-          { id: 6, text: 'Camera', amount: 150 },
-          { id: 7, text: 'Camera', amount: 150 },
-          { id: 8, text: 'Camera', amount: 150 },
-          { id: 9, text: 'Camera', amount: 150 },
-          { id: 10, text: 'Camera', amount: 150 },
-          { id: 11, text: 'Camera', amount: 150 }
-        ],
-    discount: 0
-}
+const initialState = data;
 
 //Create context
 export const GlobalContext = createContext(initialState);
@@ -50,6 +36,12 @@ export const GlobalProvider = ({children}) => {
             payload: discount
         })
     }
+    function changeState(id){
+        dispatch({
+            type: 'CHANGE_STATE',
+            payload: id
+        })
+    }
     return (<GlobalContext.Provider value={
         {
             //set state to global content
@@ -57,7 +49,8 @@ export const GlobalProvider = ({children}) => {
             discount: state.discount,
             deleteTransaction,
             addTransaction,
-            changeDiscount
+            changeDiscount,
+            changeState
         }
     }>
         {children}
