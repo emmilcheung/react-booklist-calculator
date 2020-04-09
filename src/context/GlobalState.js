@@ -3,7 +3,7 @@ import AppReducer from './AppReducer';
 import data from '../data/initialState.json';
 
 //Initial state
-const initialState = data;
+const initialState = data;  
 
 //Create context
 export const GlobalContext = createContext(initialState);
