@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import {GlobalContext} from '../context/GlobalState';
 
 export const Header = () => {
+    const {loadBooklist}  = useContext(GlobalContext);
 
     function componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(response => response.json())
         .then(json => console.log(json))
     }
-    componentDidMount()
+    // componentDidMount()
 
     const myFunction = () => {
         var x = document.getElementById("myTopnav");
@@ -20,27 +22,40 @@ export const Header = () => {
 
     return (
         <>
-        <div className="topnav" id="myTopnav">
-            <a onClick={() =>{
-                window.location.reload();
-            }}>Home</a>
-            <a href="#news">News</a>
-            <a  onClick = {()=> {
-                window.location.href = "http://www.facebook.com";
-            }}>Contact</a>
-            <a href="#about">About</a>
-            <a href="#about">About</a>
-            <a href="#about">About</a>
-            <a href="#about">About</a>
-            <a href="#about">About</a>
-            <a href="#about">About</a>
-            <a href="#!" className="icon" onClick={myFunction}>
-            <i className="fa fa-bars"></i>
-            </a>
-        </div>
-        <h2>
-            Expense Tracker
-        </h2>
+            <div className="topnav" id="myTopnav">
+                <a onClick={() =>{
+                    window.location.reload();
+                }}>Home</a>
+                <a >News</a>
+                <a onClick={()=> {
+                    window.location.href = "http://www.facebook.com";
+                }}>Contact</a>
+
+                <div className="dropdown">
+                    <button className="dropbtn">小學 
+                        <i className="fa fa-caret-down"></i>
+                    </button>
+                    <div className="dropdown-content">
+                        <a >X</a>
+                    </div>
+                </div>
+                <div className="dropdown">
+                    <button className="dropbtn">中學 
+                        <i className="fa fa-caret-down"></i>
+                    </button>
+                    <div className="dropdown-content">
+                        <a onClick={() => loadBooklist({schoolId : '11', year : 'form1'})}>Link 1</a>
+                        <a onClick={() => loadBooklist({schoolId : '12', year : 'form1'})}>Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <a href="#!" className="icon" onClick={myFunction}>
+                    <i className="fa fa-bars"></i>
+                </a>
+            </div>
+            <h2>
+                Expense Tracker
+            </h2>
         </>
 
     )

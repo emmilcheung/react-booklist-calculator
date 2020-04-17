@@ -1,9 +1,15 @@
 import React, {createContext, useReducer} from 'react';
 import AppReducer from './AppReducer';
-import data from '../data/initialState.json';
+// import data from '../data/initialState.json';
 
 //Initial state
-const initialState = data;  
+const initialState = {
+    bookList: [],
+    discount : 0,
+    schoolId : 0,
+    schoolDiscount: 0,
+    schoolIsSet: false
+}; 
 
 //Create context
 export const GlobalContext = createContext(initialState);
@@ -42,15 +48,25 @@ export const GlobalProvider = ({children}) => {
             payload: id
         })
     }
+    function loadBooklist(no){
+        dispatch({
+            type: 'LOAD_BOOKLIST',
+            payload: no
+        })
+    }
     return (<GlobalContext.Provider value={
         {
             //set state to global content
-            transactions: state.transactions,
+            bookList: state.bookList,
             discount: state.discount,
+            schoolId: state.schoolId,
+            schoolDiscount: state.schoolDiscount,
+            schoolIsSet: state.schoolIsSet,
             deleteTransaction,
             addTransaction,
             changeDiscount,
-            changeState
+            changeState,
+            loadBooklist
         }
     }>
         {children}

@@ -8,6 +8,7 @@ import {AddTranscation} from './components/AddTranscation';
 import {GlobalProvider} from './context/GlobalState';
 
 import './App.css';
+import './navbar.css';
 
 
 function App() {
