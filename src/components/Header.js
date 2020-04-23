@@ -44,8 +44,8 @@ export const Header = () => {
                         <i className="fa fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
-                        <a onClick={() => loadBooklist({schoolId : '11', year : 'form1'})}>Link 1</a>
-                        <a onClick={() => loadBooklist({schoolId : '12', year : 'form1'})}>Link 2</a>
+                        <a onClick={() => loadBooklist({schoolId : '11', year : 'form1'})}>鄭榮之</a>
+                        <a onClick={() => loadBooklist({schoolId : '12', year : 'form1'})}>培僑(中學)</a>
                         <a href="#">Link 3</a>
                     </div>
                 </div>

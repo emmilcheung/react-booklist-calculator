@@ -22,7 +22,7 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350px;
+  width: 450px;
 }
 
 h1 {
@@ -173,5 +173,13 @@ input[type='number'] {
   background-color: rgb(149, 185, 132);
 }
 
+/* radio button  */
+.radioBtn{
+  position: center;
 
+}
+
+/* .radioBtn input{
+  display: none;
+} */
 

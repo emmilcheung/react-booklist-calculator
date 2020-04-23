@@ -6,9 +6,11 @@ import AppReducer from './AppReducer';
 const initialState = {
     bookList: [],
     discount : 0,
-    schoolId : 0,
-    schoolDiscount: 0,
-    schoolIsSet: false
+    schoolDetails : {
+        schoolId : 0,
+        schoolDiscount: 0,
+        schoolIsSet: false
+    }
 }; 
 
 //Create context
@@ -36,32 +38,37 @@ export const GlobalProvider = ({children}) => {
             payload: transaction
         })
     }
+
     function changeDiscount(discount){
         dispatch({
             type: 'CHANGE_DISCOUNT',
             payload: discount
         })
     }
+
     function changeState(id){
         dispatch({
             type: 'CHANGE_STATE',
             payload: id
         })
     }
+
     function loadBooklist(no){
         dispatch({
             type: 'LOAD_BOOKLIST',
             payload: no
         })
     }
+
     return (<GlobalContext.Provider value={
         {
             //set state to global content
             bookList: state.bookList,
             discount: state.discount,
-            schoolId: state.schoolId,
-            schoolDiscount: state.schoolDiscount,
-            schoolIsSet: state.schoolIsSet,
+            schoolDetails: state.schoolDetails,
+            // schoolId: state.schoolDetails.schoolId,
+            // schoolDiscount: state.schoolDetails.schoolDiscount,
+            // schoolIsSet: state.schoolDetails.schoolIsSet,
             deleteTransaction,
             addTransaction,
             changeDiscount,

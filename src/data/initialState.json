@@ -121,7 +121,8 @@
                         { "id": 14, "text": "Book 14  ", "amount": 600 , "isChosen" : true}
                     ],
                     
-                    "discount": 0.11
+                    "discount": 0.11,
+                    "schoolName": "CWGC"
                     
                 },
 
@@ -142,7 +143,8 @@
                         { "id": 13, "text": "Book 13", "amount": 100 , "isChosen" : true},
                         { "id": 14, "text": "Book 14  ", "amount": 100 , "isChosen" : true}
                     ],
-                    "discount": 0.09
+                    "discount": 0.09,
+                    "schoolName": "Pui Kiu"
                 }
             }
 }

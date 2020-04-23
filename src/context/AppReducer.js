@@ -34,9 +34,12 @@ export default (state, action) => {
             return{
                 ...state,
                 bookList: [...data.bookList[action.payload.schoolId][action.payload.year]],
-                schoolId: action.payload.schoolId,
-                schoolDiscount : data.bookList[action.payload.schoolId]["discount"],
-                schoolIsSet : true
+                schoolDetails:{
+                    schoolId: action.payload.schoolId,
+                    schoolDiscount : data.bookList[action.payload.schoolId]["discount"],
+                    schoolName: data.bookList[action.payload.schoolId]["schoolName"], 
+                    schoolIsSet : true
+                }
             }
         default:
             return state
