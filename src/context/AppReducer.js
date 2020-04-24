@@ -31,6 +31,7 @@ export default (state, action) => {
                 )
             }
         case 'LOAD_BOOKLIST':
+            data.bookList[action.payload.schoolId][action.payload.year].map(book => book.isChosen = true);
             return{
                 ...state,
                 bookList: [...data.bookList[action.payload.schoolId][action.payload.year]],
