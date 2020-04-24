@@ -32,16 +32,20 @@ export const Header = () => {
                 }}>Contact</a>
 
                 <div className="dropdown">
-                    <button className="dropbtn">小學 
-                        <i className="fa fa-caret-down"></i>
+                    <button className="dropbtn">
+                        <i className="fa fa-school" ></i>
+                               小學 
+                        <i className="fas fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
                         <a >X</a>
                     </div>
                 </div>
                 <div className="dropdown">
-                    <button className="dropbtn">中學 
-                        <i className="fa fa-caret-down"></i>
+                    <button className="dropbtn">
+                        <i className="fas fa-university"></i>
+                        中學 
+                        <i className="fas fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
                         <a href="#!" onClick={() => loadBooklist({schoolId : '11', year : 'form1'})}>鄭榮之</a>
@@ -50,11 +54,11 @@ export const Header = () => {
                     </div>
                 </div>
                 <a href="#!" className="icon" onClick={myFunction}>
-                    <i className="fa fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </a>
             </div>
             <h2>
-                Expense Tracker
+               Textbook calculator (NC37) 
             </h2>
         </>
 
