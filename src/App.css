@@ -125,9 +125,10 @@ input[type='number'] {
   margin: 10px 0;
   font-size: 0.9em;
 }
-
-.list li:hover{
-  transform: scale(1.05);
+@media(hover: hover){
+  .list li:hover{
+    transform: scale(1.05);
+  }
 }
 
 .list li.plus {
@@ -174,10 +175,10 @@ input[type='number'] {
   padding: 10px;
   margin: 10px 0;
 }
-
 .discont-btn:hover{
   background-color: rgb(149, 185, 132);
 }
+
 
 /* radio button  */
 .radioBtn{
@@ -198,8 +199,10 @@ input[type='number'] {
   margin-left: auto;
   margin-right: auto;
 }
-.radioBtn label:hover{
-  font-size: 1.3em;
+@media(hover: hover){
+  .radioBtn label:hover{
+    font-size: 1.3em;
+  }
 }
 
 
