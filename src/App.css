@@ -183,8 +183,7 @@ input[type='number'] {
 /* radio button  */
 .radioBtn{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-direction: row; */
   padding-bottom: 5px;
 }
 
@@ -209,4 +208,17 @@ input[type='number'] {
 
 .radioBtn input[type="radio"]:checked+label{
   border-bottom: 3px solid #ccc;
+}
+
+div.scrollbar{
+  white-space: nowrap;
+  overflow-x: auto;
+  
+}
+
+div.scrollbar li, label{
+  display: inline-block;
+  text-align: center; 
+  padding: 10px;
+  text-decoration: none;
 }

@@ -1,0 +1,862 @@
+{
+    "bookList": {
+        "cwgc": {
+            "form1": [
+                {
+                    "id": 1,
+                    "text": "Oxford English Form 1 (School-based Edition)",
+                    "amount": 339,
+                    "isChosen": true
+                },
+                {
+                    "id": 2,
+                    "text": "Performance Plus Task-Based Listening Level 1 (4th Ed. 2016)",
+                    "amount": 175,
+                    "isChosen": true
+                },
+                {
+                    "id": 3,
+                    "text": "Success in Grammar 1 (2nd Edition 2016)",
+                    "amount": 176,
+                    "isChosen": true
+                },
+                {
+                    "id": 4,
+                    "text": "啟思中國語文(第四版)中一上(2014年第四版)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 5,
+                    "text": "啟思中國語文(第四版)中一下(2014年第四版)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 6,
+                    "text": "New Trend Mathematics Book S1A (2nd Ed. 2008)\n(Loose-Leaf Binding)",
+                    "amount": 227,
+                    "isChosen": true
+                },
+                {
+                    "id": 7,
+                    "text": "New Trend Mathematics Book S1B (2nd Ed. 2008)\n(Loose-Leaf Binding)",
+                    "amount": 222,
+                    "isChosen": true
+                },
+                {
+                    "id": 8,
+                    "text": "初中通識個人成長與人際關係新視野 第二版 (2017年出版)",
+                    "amount": 126,
+                    "isChosen": true
+                },
+                {
+                    "id": 9,
+                    "text": "初中通識今日香港新視野 第二版 (2017年出版)",
+                    "amount": 126,
+                    "isChosen": true
+                },
+                {
+                    "id": 10,
+                    "text": "中國史遊蹤 一甲 (2012)",
+                    "amount": 187.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 11,
+                    "text": "中國史遊蹤 二甲 (2012)",
+                    "amount": 195,
+                    "isChosen": true
+                },
+                {
+                    "id": 12,
+                    "text": "School-based ICT Longman Computer Course for Junior Secondary(Theme A: Office Applications)\n(2013) (with Chapter 8)",
+                    "amount": 71,
+                    "isChosen": true
+                },
+                {
+                    "id": 13,
+                    "text": "Junior Secondary Exploring Geography Map-reading Skills 1\n(2nd Edition, 2017)",
+                    "amount": 141,
+                    "isChosen": true
+                },
+                {
+                    "id": 14,
+                    "text": "Junior Secondary Exploring Geography Book 1\n(2nd Edition 2017)",
+                    "amount": 130,
+                    "isChosen": true
+                },
+                {
+                    "id": 15,
+                    "text": "Junior Secondary Exploring Geography Workbook 1\n(2nd Edition 2017)",
+                    "amount": 48,
+                    "isChosen": true
+                },
+                {
+                    "id": 16,
+                    "text": "Junior Secondary Exploring Geography Book 3\n(2nd Edition 2017)",
+                    "amount": 130,
+                    "isChosen": true
+                },
+                {
+                    "id": 17,
+                    "text": "Junior Secondary Exploring Geography Workbook 3\n(2nd Edition 2017)",
+                    "amount": 48,
+                    "isChosen": true
+                },
+                {
+                    "id": 18,
+                    "text": "Junior Technology & Living (Integrated Edition)\n(2nd Edition 2017)",
+                    "amount": 262,
+                    "isChosen": true
+                },
+                {
+                    "id": 19,
+                    "text": "IES Section 22: Life in the Main Centres of Early Civilization\n(2nd edition 2016)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 20,
+                    "text": "IES Section 23: Life in the Ancient Greece (2nd Edition, 2016)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 21,
+                    "text": "IES Section 25: Life in Medieval Time",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 22,
+                    "text": "生活普通話 中一 (2010)",
+                    "amount": 172,
+                    "isChosen": true
+                },
+                {
+                    "id": 23,
+                    "text": "New Era Music Book 1 (With Workbook) (2011)",
+                    "amount": 188.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 24,
+                    "text": "Longman Dictionary of Contemporary English (English-Chinese) (5th Ed.) (With DVD-ROM) (Pocket Size)",
+                    "amount": 399,
+                    "isChosen": true
+                },
+                {
+                    "id": 25,
+                    "text": "商務新詞典 (全新版)",
+                    "amount": 110,
+                    "isChosen": true
+                },
+                {
+                    "id": 26,
+                    "text": "新舊約全書 (學生/輕便版) (神版RCU53A)",
+                    "amount": 80,
+                    "isChosen": true
+                }
+            ],
+            "form2": [
+                {
+                    "id": 1,
+                    "text": "Oxford English Form 2 (School-based Edition)\n",
+                    "amount": 339,
+                    "isChosen": true
+                },
+                {
+                    "id": 2,
+                    "text": "Oxford Essential Thematic Anthology 2 (2019)",
+                    "amount": 118,
+                    "isChosen": true
+                },
+                {
+                    "id": 3,
+                    "text": "Performance Plus Task-Based Listening Level 2\n(4th Ed. 2016)",
+                    "amount": 177,
+                    "isChosen": true
+                },
+                {
+                    "id": 4,
+                    "text": "Success in Grammar 2 (2nd Ed. 2016)",
+                    "amount": 176,
+                    "isChosen": true
+                },
+                {
+                    "id": 5,
+                    "text": "啟思中國語文(第四版)中二上(2014年第四版)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 6,
+                    "text": "啟思中國語文(第四版)中二下(2014年第四版)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 7,
+                    "text": "New Trend Mathematics Book S2A (2nd Ed. 2008)\n(Loose-Leaf Binding)",
+                    "amount": 227,
+                    "isChosen": true
+                },
+                {
+                    "id": 8,
+                    "text": "New Trend Mathematics Book S2B (2nd Ed. 2008)\n(Loose-Leaf Binding)",
+                    "amount": 222,
+                    "isChosen": true
+                },
+                {
+                    "id": 9,
+                    "text": "中國史遊蹤 三甲(上) (2012)",
+                    "amount": 109,
+                    "isChosen": true
+                },
+                {
+                    "id": 10,
+                    "text": "聖經伴我行 第一冊 (2007)",
+                    "amount": 108,
+                    "isChosen": true
+                },
+                {
+                    "id": 11,
+                    "text": "聖經伴我行 習作 第一冊 (2007)",
+                    "amount": 30,
+                    "isChosen": true
+                },
+                {
+                    "id": 12,
+                    "text": "Interactive Geography Bridging Module – Saving Our Rainforest (First published, 2018)",
+                    "amount": 111,
+                    "isChosen": true
+                },
+                {
+                    "id": 13,
+                    "text": "Interactive Geography Bridging Module – Saving Our Rainforest Workbook (First published, 2018)",
+                    "amount": 53,
+                    "isChosen": true
+                },
+                {
+                    "id": 14,
+                    "text": "Interactive Geography Core Module 4 – The Trouble of Water (2nd Edition, 2017)",
+                    "amount": 127,
+                    "isChosen": true
+                },
+                {
+                    "id": 15,
+                    "text": "Interactive Geography Core Module 4 Workbook – The Trouble of Water (2nd Edition, 2017)",
+                    "amount": 53,
+                    "isChosen": true
+                },
+                {
+                    "id": 16,
+                    "text": "Aristo Science for the New Century 2A (2018)",
+                    "amount": 207,
+                    "isChosen": true
+                },
+                {
+                    "id": 17,
+                    "text": "Aristo Science for the New Century 2B (2018)",
+                    "amount": 207,
+                    "isChosen": true
+                },
+                {
+                    "id": 18,
+                    "text": "Aristo Science for the New Century 2A Assignment Book (2018)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 19,
+                    "text": "Aristo Science for the New Century 2B Assignment Book (2018)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 20,
+                    "text": "Issue-Enquiry Series Section 26 \nThe Renaissance (2nd Edition, 2017)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 21,
+                    "text": "Issue-Enquiry Series Section 27 \nThe Age of Revolution (2nd Edition, 2017)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 22,
+                    "text": "Issue-Enquiry Series Section 28 \nLife in the Age of Machines (2nd Edition, 2017)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 23,
+                    "text": "生活普通話 中二 (2010)",
+                    "amount": 174,
+                    "isChosen": true
+                },
+                {
+                    "id": 24,
+                    "text": "New Era Music Book 2 (With Workbook) (2011)",
+                    "amount": 188.5,
+                    "isChosen": true
+                }
+            ],
+            "form3": [
+                {
+                    "id": 1,
+                    "text": "Longman English Edge JS Book 3 (School-based Edition)",
+                    "amount": 120,
+                    "isChosen": true
+                },
+                {
+                    "id": 2,
+                    "text": "Longman English Edge JS 3B (2017)",
+                    "amount": 210,
+                    "isChosen": true
+                },
+                {
+                    "id": 3,
+                    "text": "Longman English Edge Grammar JS3 (2017)",
+                    "amount": 156,
+                    "isChosen": true
+                },
+                {
+                    "id": 4,
+                    "text": "Performance Plus Task-based Listening Level 3 (4th Ed. 2016)",
+                    "amount": 178,
+                    "isChosen": true
+                },
+                {
+                    "id": 5,
+                    "text": "啟思中國語文 中三上 (第四版 2014)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 6,
+                    "text": "啟思中國語文 中三下 (第四版 2014)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 7,
+                    "text": "New Trend Mathematics Book S3A (2nd Ed. 2008)\n (Loose-Leaf Binding)",
+                    "amount": 227,
+                    "isChosen": true
+                },
+                {
+                    "id": 8,
+                    "text": "New Trend Mathematics Book S3B (2nd Ed. 2008\n) (Loose-Leaf Binding)",
+                    "amount": 222,
+                    "isChosen": true
+                },
+                {
+                    "id": 9,
+                    "text": "初中通識 現代中國新視野((第二版) (2017年版)",
+                    "amount": 126,
+                    "isChosen": true
+                },
+                {
+                    "id": 10,
+                    "text": "新領域初中通識 (單元四)：全球化 綜合版 \n(2015年第一版) (2017重印兼修訂正版)",
+                    "amount": 124,
+                    "isChosen": true
+                },
+                {
+                    "id": 11,
+                    "text": "中國史遊蹤 三甲 (下) (2012)",
+                    "amount": 109,
+                    "isChosen": true
+                },
+                {
+                    "id": 12,
+                    "text": "Junior Secondary Exploring Geography BK 5 (2nd Edition 2017)",
+                    "amount": 130,
+                    "isChosen": true
+                },
+                {
+                    "id": 13,
+                    "text": "Junior Secondary Exploring Geography BK 5 Workbook \n(2nd Edition 2017)",
+                    "amount": 48,
+                    "isChosen": true
+                },
+                {
+                    "id": 14,
+                    "text": "Junior Secondary Exploring Geography BK 11 (2nd Edition 2017)",
+                    "amount": 110,
+                    "isChosen": true
+                },
+                {
+                    "id": 15,
+                    "text": "Junior Secondary Exploring Geography BK 11 Workbook \n(2nd Edition 2017)",
+                    "amount": 47,
+                    "isChosen": true
+                },
+                {
+                    "id": 16,
+                    "text": "New Journey Through History 3A (2nd edition 2015)",
+                    "amount": 182.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 17,
+                    "text": "NSS Mastering Biology Book 1A (2nd Ed.) (For Biology and Combined Science) (2014)",
+                    "amount": 223,
+                    "isChosen": true
+                }
+            ],
+            "form4": [
+                {
+                    "id": 1,
+                    "text": "Oxford Advanced Exam Skills Paper 1& 2 Reading and Writing Volume 1 (With Exam Booster) (2nd Edition 2018)",
+                    "amount": 263,
+                    "isChosen": true
+                },
+                {
+                    "id": 2,
+                    "text": "Developing Skills for HKDSE Paper 3 Listening & Integrated Skills Book 4 (Set B) (2018 Edition)",
+                    "amount": 266,
+                    "isChosen": true
+                },
+                {
+                    "id": 3,
+                    "text": "Developing Skills for HKDSE – Paper 4 Speaking Book 4 (Set B) (2018 Edition)",
+                    "amount": 214,
+                    "isChosen": true
+                },
+                {
+                    "id": 4,
+                    "text": "Oxford Essential Thematic Anthology\nBook 4 (2019)",
+                    "amount": 197,
+                    "isChosen": true
+                },
+                {
+                    "id": 5,
+                    "text": "啟思新高中中國語文 第一冊 (第二版 2014)",
+                    "amount": 258,
+                    "isChosen": true
+                },
+                {
+                    "id": 6,
+                    "text": "啟思新高中中國語文 第二冊 (第二版 2014)",
+                    "amount": 258,
+                    "isChosen": true
+                },
+                {
+                    "id": 7,
+                    "text": "Effective Learning Mathematics Book 4A (2014)",
+                    "amount": 248,
+                    "isChosen": true
+                },
+                {
+                    "id": 8,
+                    "text": "Effective Learning Mathematics Book 4B (2014)",
+                    "amount": 243,
+                    "isChosen": true
+                },
+                {
+                    "id": 9,
+                    "text": "Effective Learning Mathematics Book 5A (2014)",
+                    "amount": 255,
+                    "isChosen": true
+                },
+                {
+                    "id": 10,
+                    "text": "Effective Learning Mathematics Book 5B (2014)",
+                    "amount": 250,
+                    "isChosen": true
+                },
+                {
+                    "id": 11,
+                    "text": "New Progress in Senior Mathematics (Extended Part) Module 2 Book 1 (2009)",
+                    "amount": 230,
+                    "isChosen": true
+                },
+                {
+                    "id": 12,
+                    "text": "現代高中通識教育 第二版 今日香港 (2018年初版)",
+                    "amount": 266,
+                    "isChosen": true
+                },
+                {
+                    "id": 13,
+                    "text": "現代高中通識教育 第二版 公共衛生 (2018年初版)",
+                    "amount": 248.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 14,
+                    "text": "現代高中通識教育 第二版 個人成長與人際關係\n(2018年初版)",
+                    "amount": 244,
+                    "isChosen": true
+                },
+                {
+                    "id": 15,
+                    "text": "新視野 中國歷史 必修第一冊 (第二版 2014)",
+                    "amount": 163,
+                    "isChosen": true
+                },
+                {
+                    "id": 16,
+                    "text": "新視野 中國歷史 必修第二冊 (第二版 2014)",
+                    "amount": 183,
+                    "isChosen": true
+                },
+                {
+                    "id": 17,
+                    "text": "NSS Information and Communication Technology Compulsory Volume 1 (2009)",
+                    "amount": 372,
+                    "isChosen": true
+                },
+                {
+                    "id": 18,
+                    "text": "NSS Information and Communication Technology Compulsory Volume 2 (2009)",
+                    "amount": 372,
+                    "isChosen": true
+                },
+                {
+                    "id": 19,
+                    "text": "NSS Information and Communication Technology Compulsory Workbook Volume 1 (2009)",
+                    "amount": 118,
+                    "isChosen": true
+                },
+                {
+                    "id": 20,
+                    "text": "NSS Information and Communication Technology Compulsory Workbook Volume 2 (2009)",
+                    "amount": 118,
+                    "isChosen": true
+                },
+                {
+                    "id": 21,
+                    "text": "NSS Information and Communication Technology Compulsory Volume 3 (2009)",
+                    "amount": 305,
+                    "isChosen": true
+                },
+                {
+                    "id": 22,
+                    "text": "NSS Information and Communication Technology Compulsory Workbook Volume 3 (2009)",
+                    "amount": 118,
+                    "isChosen": true
+                },
+                {
+                    "id": 23,
+                    "text": "HKDSE Information and Communication Technology Multiple-Choice Questions (FOR 2016 DSE & AFTER)\n(With Answer Key) (2015 Edition)",
+                    "amount": 158,
+                    "isChosen": true
+                },
+                {
+                    "id": 24,
+                    "text": "Senior Secondary Exploring Geography 1\n(3rd Edition, 2019)",
+                    "amount": 366,
+                    "isChosen": true
+                },
+                {
+                    "id": 25,
+                    "text": "Senior Secondary Exploring Geography 3\n(3rd Edition, 2019)",
+                    "amount": 416,
+                    "isChosen": true
+                },
+                {
+                    "id": 26,
+                    "text": "NSS Exploring Economics 1 Demand and Supply (Compulsory Part) (3rd Edition, 2019)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 27,
+                    "text": "NSS Exploring Economics 2 Firm and Production (Compulsory Part) (3rd Edition, 2019)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 28,
+                    "text": "NSS Exploring Economics 3 Efficiency and Equity (3rd Edition, 2019)",
+                    "amount": 201,
+                    "isChosen": true
+                },
+                {
+                    "id": 29,
+                    "text": "NSS Business, Accounting and Financial Studies: Frank Wood’s Introduction to Accounting (Compulsory Part)\n(Second edition 2014) (with Study Guide)",
+                    "amount": 230,
+                    "isChosen": true
+                },
+                {
+                    "id": 30,
+                    "text": "NSS Business, Accounting and Financial Studies: Frank Wood’s Financial Accounting 1 (Elective Part)\n(Second edition 2014) (with Study Guide)",
+                    "amount": 256,
+                    "isChosen": true
+                },
+                {
+                    "id": 31,
+                    "text": "NSS Physics at Work 1 Heat and Gases (For Physics)\n(Second edition 2015)",
+                    "amount": 198,
+                    "isChosen": true
+                },
+                {
+                    "id": 32,
+                    "text": "NSS Physics at Work 2 Force and Motion (For Physics)\n(Second edition 2015)",
+                    "amount": 377,
+                    "isChosen": true
+                },
+                {
+                    "id": 33,
+                    "text": "NSS Physics at Work 3A Wave Motion I (For Physics and Combined Science) (Second edition 2015)",
+                    "amount": 154,
+                    "isChosen": true
+                },
+                {
+                    "id": 34,
+                    "text": "NSS Physics at Work 3B Wave Motion II (For Physics and Combined Science) (Second edition 2015)",
+                    "amount": 215,
+                    "isChosen": true
+                },
+                {
+                    "id": 35,
+                    "text": "NSS Physics at Work Basic Exercise Book 1 (With Solutions) (Second edition 2015)",
+                    "amount": 111,
+                    "isChosen": true
+                },
+                {
+                    "id": 36,
+                    "text": "NSS Physics at Work Basic Exercise Book 2 (With Solutions) (Second edition 2015)",
+                    "amount": 147,
+                    "isChosen": true
+                },
+                {
+                    "id": 37,
+                    "text": "NSS Physics at Work Basic Exercise Book 3A (With Solutions) (Second edition 2015)",
+                    "amount": 68,
+                    "isChosen": true
+                },
+                {
+                    "id": 38,
+                    "text": "NSS Physics at Work Basic Exercise Book 3B (With Solutions) (Second edition 2015)",
+                    "amount": 88,
+                    "isChosen": true
+                },
+                {
+                    "id": 39,
+                    "text": "HKDSE Chemistry A Modern View Book 1\n(For Chemistry and Combined Science)\n(2014 2nd Edition, 2019 Reprinted with minor amendments)",
+                    "amount": 327.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 40,
+                    "text": "HKDSE Chemistry A Modern View Book 2 (For Chemistry and Combined Science) \n(2014 2nd Edition, 2019 Reprinted with minor amendments)",
+                    "amount": 327.5,
+                    "isChosen": true
+                },
+                {
+                    "id": 41,
+                    "text": "NSS Mastering Biology Book 1B (2nd ed. 2014) (For Biology and Combined Science)",
+                    "amount": 171,
+                    "isChosen": true
+                },
+                {
+                    "id": 42,
+                    "text": "NSS Mastering Biology Book 2 (2nd ed. 2014) (For Biology)",
+                    "amount": 310,
+                    "isChosen": true
+                },
+                {
+                    "id": 43,
+                    "text": "NSS Mastering Biology Book 3 (2nd ed. 2014) (For Biology)",
+                    "amount": 336,
+                    "isChosen": true
+                },
+                {
+                    "id": 44,
+                    "text": "Longman Dictionary of Contemporary English (English-Chinese) (5th Edition) (With DVD-ROM) (Pocket Size)",
+                    "amount": 399,
+                    "isChosen": true
+                }
+            ],
+            "discount": 0.11,
+            "schoolName": "CWGC"
+        },
+        "lmy": {
+            "form1": [
+                {
+                    "id": 1,
+                    "text": "New Treasure Plus Book 1A (2nd Edition) (With Vocabulary & Writing Book 1A)",
+                    "amount": 206,
+                    "isChosen": true
+                },
+                {
+                    "id": 2,
+                    "text": "Success in Grammar 1 (2017 2nd Ed.)",
+                    "amount": 176,
+                    "isChosen": true
+                },
+                {
+                    "id": 3,
+                    "text": "Junior Oxford Essential Listening 1 (2019, 2nd Ed.)",
+                    "amount": 176,
+                    "isChosen": true
+                },
+                {
+                    "id": 4,
+                    "text": "The Giraffe and the Pelly and Me (latest ed.) 9780141365435",
+                    "amount": 90,
+                    "isChosen": true
+                },
+                {
+                    "id": 5,
+                    "text": "New Treasure Plus Book 1B (2nd Edition) (With Vocabulary & Writing Book 1B)",
+                    "amount": 206,
+                    "isChosen": true
+                },
+                {
+                    "id": 6,
+                    "text": "啟思中國語文 中一上 (第四版 2014)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 7,
+                    "text": "啟思中國語文 中一下 (第四版 2014)",
+                    "amount": 245,
+                    "isChosen": true
+                },
+                {
+                    "id": 8,
+                    "text": "全方位中國歷史1 (校本版) (第一版 2013)",
+                    "amount": 168,
+                    "isChosen": true
+                },
+                {
+                    "id": 9,
+                    "text": "全方位中國歷史 作業1 (校本版) (第一版 2013)",
+                    "amount": 87,
+                    "isChosen": true
+                },
+                {
+                    "id": 10,
+                    "text": "數學與生活 1A (第三版 2015) (單元版)",
+                    "amount": 237,
+                    "isChosen": true
+                },
+                {
+                    "id": 11,
+                    "text": "Mathematics in Action 1A (3rd Edition, 2015) (Modular Binding)\n(For English-Teaching class only)",
+                    "amount": 237,
+                    "isChosen": true
+                },
+                {
+                    "id": 12,
+                    "text": "數學與生活 1B (第三版)",
+                    "amount": 237,
+                    "isChosen": true
+                },
+                {
+                    "id": 13,
+                    "text": "Mathematics in Action 1B (3rd Edition, 2015) (Modular Binding) \n(For English-Teaching class only)",
+                    "amount": 237,
+                    "isChosen": true
+                },
+                {
+                    "id": 14,
+                    "text": "雅集科學新世紀1A (2018)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 15,
+                    "text": "雅集科學新世紀練習簿1A (2018)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 16,
+                    "text": "Aristo Science for the New Century 1A (2018) \n(For English-teaching class only)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 17,
+                    "text": "Aristo Science for the New Century Assignment Book 1A (2018) \n(For English-teaching class only)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 18,
+                    "text": "雅集科學新世紀1B (2018)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 19,
+                    "text": "雅集科學新世紀練習簿1B (2018)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 20,
+                    "text": "Aristo Science for the New Century 1B (2018) \n(For English-teaching class only)",
+                    "amount": 203,
+                    "isChosen": true
+                },
+                {
+                    "id": 21,
+                    "text": "Aristo Science for the New Century Assignment Book 1B (2018) \n(For English-teaching class only)",
+                    "amount": 66,
+                    "isChosen": true
+                },
+                {
+                    "id": 22,
+                    "text": "初中議題探究系列 課題22 古代主要文明中心的生活 (2016 第二版)",
+                    "amount": 64,
+                    "isChosen": true
+                },
+                {
+                    "id": 23,
+                    "text": "新歷史旅程 1下 (2016第二版)",
+                    "amount": 170,
+                    "isChosen": true
+                },
+                {
+                    "id": 24,
+                    "text": "初中活學地理 課本 1 善用城市空間 (第二版) (2017)",
+                    "amount": 130,
+                    "isChosen": true
+                },
+                {
+                    "id": 25,
+                    "text": "初中活學地理 作業 1 (第二版) (2017)",
+                    "amount": 48,
+                    "isChosen": true
+                },
+                {
+                    "id": 26,
+                    "text": "初中活學地理 地圖閱讀技能 1 (第二版(2017))",
+                    "amount": 141,
+                    "isChosen": true
+                },
+                {
+                    "id": 27,
+                    "text": "初中活學地理 課本 3 糧食問題 (第二版) (2017)",
+                    "amount": 130,
+                    "isChosen": true
+                },
+                {
+                    "id": 28,
+                    "text": "初中活學地理 作業 3 (第二版) (2017)",
+                    "amount": 48,
+                    "isChosen": true
+                },
+                {
+                    "id": 29,
+                    "text": "新編生活普通話 (輕量版)中一 (2019年版)",
+                    "amount": 110,
+                    "isChosen": true
+                }
+            ],
+            "discount": 0.09,
+            "schoolName": "梁文燕"
+        }
+    }
+}

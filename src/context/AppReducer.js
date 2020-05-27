@@ -1,4 +1,6 @@
-import data from '../data/initialState.json';
+// import data from '../data/test.json';
+// const data = () => fetch("https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec")
+//                         .then(res => {return res.json()})
 export default (state, action) => {
     switch(action.type){
         case 'DELETE_TRANSACTION':
@@ -31,17 +33,33 @@ export default (state, action) => {
                 )
             }
         case 'LOAD_BOOKLIST':
-            data.bookList[action.payload.schoolId][action.payload.year].map(book => book.isChosen = true);
-            return{
-                ...state,
-                bookList: [...data.bookList[action.payload.schoolId][action.payload.year]],
-                schoolDetails:{
-                    schoolId: action.payload.schoolId,
-                    schoolDiscount : data.bookList[action.payload.schoolId]["discount"],
-                    schoolName: data.bookList[action.payload.schoolId]["schoolName"], 
-                    schoolIsSet : true
+            const data = action.payload.data
+            try{
+                data.bookList[action.payload.schoolId][action.payload.year].map(book => book.isChosen = true);
+                return {
+                    ...state,
+                    bookList: [...data.bookList[action.payload.schoolId][action.payload.year]],
+                    currentForm: action.payload.year,
+                    schoolDetails:{
+                        schoolId: action.payload.schoolId,
+                        schoolDiscount : data.bookList[action.payload.schoolId]["discount"],
+                        schoolName: data.bookList[action.payload.schoolId]["schoolName"], 
+                        schoolIsSet : true
+                    }
                 }
             }
+            catch(err){
+                return {
+                    bookList: [],
+                    discount : 0,
+                    schoolDetails : {
+                        schoolId : action.payload.schoolId,
+                        schoolDiscount: 0,
+                        schoolIsSet: true
+                    }
+                }; 
+            }
+
         default:
             return state
     }

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {GlobalContext} from '../context/GlobalState';
 
 export const Header = () => {
-    const {loadBooklist}  = useContext(GlobalContext);
+    const { schoolList, loadBooklist}  = useContext(GlobalContext);
 
     function componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -18,6 +18,9 @@ export const Header = () => {
         } else {
           x.className = "topnav";
         }
+    }
+    if (schoolList == null || Object.keys(schoolList).length == 0){
+        return <dir>Loading ...</dir>
     }
 
     return (
@@ -48,8 +51,8 @@ export const Header = () => {
                         <i className="fas fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
-                        <a href="#!" onClick={() => loadBooklist({schoolId : '11', year : 'form1'})}>鄭榮之</a>
-                        <a href="#!" onClick={() => loadBooklist({schoolId : '12', year : 'form1'})}>培僑(中學)</a>
+                        <a href="#!" onClick={() => loadBooklist({schoolId : 'cwgc', year : 'form1'})}>鄭榮之</a>
+                        <a href="#!" onClick={() => loadBooklist({schoolId : 'lmy', year : 'form1'})}>梁文燕</a>
                         <a href="#!">Link 3</a>
                     </div>
                 </div>

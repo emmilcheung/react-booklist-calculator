@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from 'react';
+import React, {createContext, useState, useReducer, useEffect} from 'react';
 import AppReducer from './AppReducer';
 // import data from '../data/initialState.json';
 
@@ -6,6 +6,7 @@ import AppReducer from './AppReducer';
 const initialState = {
     bookList: [],
     discount : 0,
+    currentForm : "",
     schoolDetails : {
         schoolId : 0,
         schoolDiscount: 0,
@@ -24,6 +25,13 @@ export const GlobalProvider = ({children}) => {
     //when triggered, state and parameter in dispatch will send to AppReducer
     //initialState no description 
     const [state, dispatch] = useReducer(AppReducer, initialState)
+    const [schoolList, setSchoolList] = useState({})
+    useEffect(() => {
+        fetch("https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec")
+            .then(res => res.json())
+            .then(json => setSchoolList(json))
+    }, [])
+
     //Action
     function deleteTransaction(id) {
         dispatch({
@@ -53,17 +61,20 @@ export const GlobalProvider = ({children}) => {
         })
     }
 
-    function loadBooklist(no){
+    function loadBooklist(payload){
+        payload.data = schoolList
         dispatch({
             type: 'LOAD_BOOKLIST',
-            payload: no
+            payload: payload 
         })
     }
 
     return (<GlobalContext.Provider value={
         {
+            schoolList: schoolList,
             //set state to global content
             bookList: state.bookList,
+            currentForm: state.currentForm,
             discount: state.discount,
             schoolDetails: state.schoolDetails,
             // schoolId: state.schoolDetails.schoolId,
