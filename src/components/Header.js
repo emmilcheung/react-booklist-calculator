@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {GlobalContext} from '../context/GlobalState';
 
 export const Header = () => {
-    const { schoolList, loadBooklist}  = useContext(GlobalContext);
+    // const { schoolList, loadBooklist}  = useContext(GlobalContext);
 
     function componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -19,9 +19,9 @@ export const Header = () => {
           x.className = "topnav";
         }
     }
-    if (schoolList == null || Object.keys(schoolList).length == 0){
-        return <dir>Loading ...</dir>
-    }
+    // if (schoolList == null || Object.keys(schoolList).length == 0){
+    //     return <dir>Loading ...</dir>
+    // }
 
     return (
         <>
@@ -30,11 +30,11 @@ export const Header = () => {
                     window.location.reload();
                 }}>Home</a>
                 <a >News</a>
-                <a onClick={()=> {
-                    window.location.href = "http://www.facebook.com";
-                }}>Contact</a>
+                <a>Contact</a>
+                <a>小學</a>
+                <a>中學</a>
 
-                <div className="dropdown">
+                {/* <div className="dropdown">
                     <button className="dropbtn">
                         <i className="fa fa-school" ></i>
                                小學 
@@ -55,7 +55,7 @@ export const Header = () => {
                         <a href="#!" onClick={() => loadBooklist({schoolId : 'lmy', year : 'form1'})}>梁文燕</a>
                         <a href="#!">Link 3</a>
                     </div>
-                </div>
+                </div> */}
                 <a href="#!" className="icon" onClick={myFunction}>
                     <i className="fas fa-bars"></i>
                 </a>

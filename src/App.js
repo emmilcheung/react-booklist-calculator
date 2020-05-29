@@ -1,27 +1,18 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { Balance } from './components/Balance';
-import {IncomeExpenses} from './components/IncomeExpenses';
-import {TransactionList} from './components/TransactionList';
-import {AddTranscation} from './components/AddTranscation';
-
-import {GlobalProvider} from './context/GlobalState';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Secondary from './Secondary'
+import Home from './Home'
 
 import './App.css';
-import './navbar.css';
 
 
 function App() {
   return (
-    <GlobalProvider >
-      <Header />
-      <div className="container">
-        <Balance />
-        <IncomeExpenses />
-        <TransactionList />
-        <AddTranscation />
-      </div>
-    </GlobalProvider>
+    <Router>
+      <Route path="/" exact component={Home} />
+      <Route path="/secondary" exact component={Secondary} />
+      {/* <Secondary /> */}
+    </Router>
   );
 }
 

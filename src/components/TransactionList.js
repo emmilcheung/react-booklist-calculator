@@ -8,20 +8,28 @@ export const TransactionList = () => {
         loadBooklist({schoolId: schoolDetails.schoolId, year: e.target.value});
     }
     const yearButton = schoolDetails.schoolIsSet? '': 'none';
-    // const setForm = e => console.log(e.target.value, schoolId);
-    var list = []
-    // console.log(schoolList)
+
+    
+
+
+    //year form list button
+    var formlist = []
     if (schoolList != null && schoolDetails.schoolIsSet){
         Object.keys(schoolList.bookList[schoolDetails.schoolId])
-            .filter(form => form != "discount")
-            .filter(form => form != "schoolName")
+            .filter(form => form !== "discount")
+            .filter(form => form !== "schoolName")
             .map(form =>{
-            list.push(<><input type="radio" id={form} name="form" value={form}></input><label htmlFor={form}>{form}</label></>) 
+            formlist.push(<><input type="radio" id={form} name="form" value={form}></input><label htmlFor={form}>{form}</label></>) 
         })
     }
 
+
+    if (schoolList == null || Object.keys(schoolList).length == 0){
+        return (<></>)
+    }
     return (
-            <>  <div>                
+            <>  
+                <div>                
                     <h3>{schoolDetails.schoolName}</h3>
                     <button onClick={() => changeDiscount(0)} className="discont-btn">原價</button>
                     <button onClick={() => changeDiscount(0.05)} className="discont-btn">95折</button>
@@ -34,7 +42,7 @@ export const TransactionList = () => {
                         <input type="radio" id="form4" name="form" value="form4"></input><label htmlFor="form4">Form 4</label>
                         <input type="radio" id="form5" name="form" value="form5"></input><label htmlFor="form5">Form 5</label>
                         <input type="radio" id="form6" name="form" value="form6"></input><label htmlFor="form6">Form 6</label> */}
-                        {list}
+                        {formlist}
 
                 </div>
                 <br />
