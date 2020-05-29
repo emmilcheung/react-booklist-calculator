@@ -61,6 +61,12 @@ h4 {
   border-right: 1px solid #dedede;
 }
 
+.loading{
+  text-transform: capitalize;
+  text-align: center;
+  margin: 2em 0;
+}
+
 .money {
   font-size: 20px;
   letter-spacing: 1px;
