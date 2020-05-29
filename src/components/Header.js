@@ -26,13 +26,11 @@ export const Header = () => {
     return (
         <>
             <div className="topnav" id="myTopnav">
-                <a onClick={() =>{
-                    window.location.reload();
-                }}>Home</a>
+                <a href="/">Home</a>
                 <a >News</a>
                 <a>Contact</a>
                 <a>小學</a>
-                <a>中學</a>
+                <a href="/secondary">中學</a>
 
                 {/* <div className="dropdown">
                     <button className="dropbtn">

@@ -6,7 +6,7 @@ export const SchoolOptionList = () => {
     const { schoolList, loadBooklist} = useContext(GlobalContext);
     //if fetching in global context not yet finished
     if (schoolList == null || Object.keys(schoolList).length == 0){
-        return (<></>)
+        return (<>Loading...</>)
     }
     //
     else{
