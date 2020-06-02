@@ -6,7 +6,7 @@ export default function Home() {
         return (
             <>
                 <Header />
-                <div className="container">
+                <div className="searchContainer">
                     <SearchForm />
                 </div>
             </>

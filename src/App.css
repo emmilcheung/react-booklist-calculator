@@ -25,6 +25,12 @@ body {
   width: 350px;
 }
 
+.searchContainer{
+  margin: 30px auto;
+  justify-items: center;
+  width: 350px;
+}
+
 h1 {
   letter-spacing: 1px;
   margin: 0;
@@ -226,4 +232,14 @@ div.scrollbar li, label{
   text-align: center; 
   padding: 10px;
   text-decoration: none;
+}
+
+@media screen and (min-width: 600px){
+  .searchContainer{
+    width: 100%;
+  }
+  .searchContainer form{
+    width: 350px;
+  }
+
 }

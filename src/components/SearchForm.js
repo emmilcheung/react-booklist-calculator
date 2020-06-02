@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 export const SearchForm = () => {
     const [isbn, setISBN] = useState("")
@@ -8,40 +8,32 @@ export const SearchForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        var postObj = {
-            "ISBN": isbn,
-            "Title": title,
-            "Publisher": publisher
-        }
-        console.log(postObj)
-    }
-    useEffect(() => {
-        fetch("https://script.google.com/macros/s/AKfycbwaAgK6-zvzPXMRT6WzlCQUpmQg_dF74gWADlpEW00wO3sJU4HS/exec ",
+        console.log(isbn, title, publisher)
+        var data = JSON.stringify({
+            "ISBN": isbn.toString(),
+            "Title": title.toString(),
+            "Publisher": publisher.toString()
+        })
+        fetch("https://script.google.com/macros/s/AKfycbwaAgK6-zvzPXMRT6WzlCQUpmQg_dF74gWADlpEW00wO3sJU4HS/exec",
             {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json; charset=utf-8",
-                    'cache-control': 'no-cache',      
-                    'Access-Control-Allow-Origin': "*"
+                method: 'POST',
+                header: {
+                    "content-type": "text/plain"
                 },
-                body: JSON.stringify({
-                    "ISBN": isbn,
-                    "Title": title,
-                    "Publisher": publisher
-                })
+                body: data
             }
-        ).then(res => console.log(res))
-         .catch(err => console.log("Err : " + err));
-        
-        return () => {
+        ).then(res => res.json())
+            .then(json => {
+                console.log(json)
+                setResult(json)
+            })
+            .catch(err => console.log("Err : " + err));
 
-        }
-    }, [publisher])
+    }
     return (
         <div>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-                integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+                integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="ISBN-input">ISBN</label>
@@ -61,6 +53,33 @@ export const SearchForm = () => {
                 </div> */}
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+
+            <table className="table">
+                <thead className="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                {
+                    (!Object.keys(result).length) ? "" : result.bookList.map((book, i) => {
+                        return (
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{i + 1}</th>
+                                    <td>{book.ISBN}</td>
+                                    <td>
+                                        {book.Title}
+                                    </td>
+                                    <td>${parseFloat(book.Price).toFixed(1)}</td>
+                                </tr>
+                            </tbody>
+                        )
+                    })
+                }
+            </table>
         </div>
     )
 }
