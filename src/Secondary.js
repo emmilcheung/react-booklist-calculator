@@ -12,8 +12,12 @@ import './navbar.css'
 
 function Secondary() {
     return (
+        <>
+        <Header />
         <GlobalProvider >
-            <Header />
+            <h2>
+            Textbook calculator (NC37) 
+            </h2>
             <div className="container">
                 <Balance />
                 <IncomeExpenses />
@@ -22,6 +26,7 @@ function Secondary() {
                 <AddTranscation />
             </div>
         </GlobalProvider>
+        </>
     )
 }
 

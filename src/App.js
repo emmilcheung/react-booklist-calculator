@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Secondary from './Secondary'
 import Home from './Home'
+import Secondary from './Secondary'
+import Search from './Search'
 
 import './App.css';
 
@@ -11,7 +12,7 @@ function App() {
     <Router>
       <Route path="/" exact component={Home} />
       <Route path="/secondary" exact component={Secondary} />
-      {/* <Secondary /> */}
+      <Route path="/search" exact component={Search} />
     </Router>
   );
 }

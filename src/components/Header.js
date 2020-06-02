@@ -4,13 +4,6 @@ import {GlobalContext} from '../context/GlobalState';
 export const Header = () => {
     // const { schoolList, loadBooklist}  = useContext(GlobalContext);
 
-    function componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json => console.log(json))
-    }
-    // componentDidMount()
-
     const myFunction = () => {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
@@ -27,9 +20,10 @@ export const Header = () => {
         <>
             <div className="topnav" id="myTopnav">
                 <a href="/">Home</a>
-                <a >News</a>
-                <a>Contact</a>
-                <a>小學</a>
+                <a href="#!">News</a>
+                <a href="#!">Contact</a>
+                <a href="/search">Search</a>
+                <a href="#!">小學</a>
                 <a href="/secondary">中學</a>
 
                 {/* <div className="dropdown">
@@ -58,9 +52,7 @@ export const Header = () => {
                     <i className="fas fa-bars"></i>
                 </a>
             </div>
-            <h2>
-               Textbook calculator (NC37) 
-            </h2>
+
         </>
 
     )
