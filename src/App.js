@@ -5,6 +5,7 @@ import Secondary from './Secondary'
 import Search from './Search'
 
 import './App.css';
+import './navbar.css'
 
 
 function App() {

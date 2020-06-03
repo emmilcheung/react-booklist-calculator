@@ -7,6 +7,7 @@ export default function Home() {
         <Header />
         <div className="container">
 
+            <h2>Welcome</h2>
         </div>
         </>
     )

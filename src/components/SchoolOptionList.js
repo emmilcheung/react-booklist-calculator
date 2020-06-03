@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import loadingGIF from '../data/loading.gif';
 
@@ -6,12 +6,12 @@ export const SchoolOptionList = () => {
 
     const { schoolList, loadBooklist } = useContext(GlobalContext);
     //if fetching in global context not yet finished
-    if (schoolList == null || Object.keys(schoolList).length == 0) {
+    if (schoolList == null || Object.keys(schoolList).length === 0) {
         return (
-        <div className="loading">
-            <img src={loadingGIF} alt="" />
+            <div className="loading">
+                <img src={loadingGIF} alt="" />
             Loading...
-        </div>)
+            </div>)
     }
     //
     else {

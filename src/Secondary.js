@@ -8,7 +8,7 @@ import { SchoolOptionList } from './components/SchoolOptionList';
 import { GlobalProvider } from './context/GlobalState';
 
 
-import './navbar.css'
+
 
 function Secondary() {
     return (

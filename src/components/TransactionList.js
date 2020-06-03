@@ -24,7 +24,7 @@ export const TransactionList = () => {
     }
 
 
-    if (schoolList == null || Object.keys(schoolList).length == 0){
+    if (schoolList == null || Object.keys(schoolList).length === 0){
         return (<></>)
     }
     return (

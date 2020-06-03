@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 
 export const SearchForm = () => {
-    const [isbn, setISBN] = useState("")
-    const [title, setTitle] = useState("")
-    const [publisher, setPublisher] = useState("")
-    const [result, setResult] = useState({})
+    const [state, setState] = useState({
+        isbn: "",
+        title: "",
+        publisher: "",
+        loading : false
+    });
+    const [result, setResult] = useState({});
 
     const onSubmit = e => {
+        setState({
+            ...state,
+            loading : true
+        })
         e.preventDefault();
-        console.log(isbn, title, publisher)
+        // console.log(state.isbn, state.title, state.publisher)
         var data = JSON.stringify({
-            "ISBN": isbn.toString(),
-            "Title": title.toString(),
-            "Publisher": publisher.toString()
+            "ISBN": state.isbn.toString(),
+            "Title": state.title.toString(),
+            "Publisher": state.publisher.toString()
         })
         fetch("https://script.google.com/macros/s/AKfycbwaAgK6-zvzPXMRT6WzlCQUpmQg_dF74gWADlpEW00wO3sJU4HS/exec",
             {
@@ -24,30 +31,59 @@ export const SearchForm = () => {
             }
         ).then(res => res.json())
             .then(json => {
-                console.log(json)
+                // console.log(json)
                 setResult(json)
             })
             .catch(err => console.log("Err : " + err));
 
+        setState({
+            ...state,
+            loading : false 
+        })
     }
+    useEffect(() => {
+        return <h2>Loading</h2>
+    }, [state.loading])
     return (
         <div className="flex-container ">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
                     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
+            <div className="flex-children"></div>
             <div className="searchForm">
                 <h2>Search Here</h2>
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <label htmlFor="ISBN-input">ISBN</label>
-                        <input type="text" className="form-control" id="ISBN-input" value={isbn} onChange={e => setISBN(e.target.value)} />
+                        <input type="text" className="form-control" id="ISBN-input" value={state.isbn} 
+                            onChange={
+                                e => setState({
+                                    ...state,
+                                    isbn : e.target.value
+                                })
+                            } 
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="Title-input">Title</label>
-                        <input type="text" className="form-control" id="Title-input" value={title} onChange={e => setTitle(e.target.value)} />
+                        <input type="text" className="form-control" id="Title-input" value={state.title} 
+                            onChange={
+                                e => setState({
+                                    ...state,
+                                    title : e.target.value
+                                })
+                            }  
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="Publisher-input">Publisher</label>
-                        <input type="text" className="form-control" id="Publisher-input" value={publisher} onChange={e => setPublisher(e.target.value)} />
+                        <input type="text" className="form-control" id="Publisher-input" value={state.publisher} 
+                            onChange={
+                                e => setState({
+                                    ...state,
+                                    publisher : e.target.value
+                                })
+                            }  
+                        />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
@@ -64,7 +100,7 @@ export const SearchForm = () => {
                     </thead>
                     {
                         (!Object.keys(result).length) ? "" : result.bookList.map((book, i) => {
-                            return (
+                            return( 
                                 <tbody key={i}>
                                     <tr>
                                         <th scope="row">{i + 1}</th>
@@ -76,6 +112,7 @@ export const SearchForm = () => {
                                     </tr>
                                 </tbody>
                             )
+                            
                         })
                     }
                 </table>

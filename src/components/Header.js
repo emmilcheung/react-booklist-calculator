@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {GlobalContext} from '../context/GlobalState';
+import React from 'react';
+// import {GlobalContext} from '../context/GlobalState';
 
 export const Header = () => {
     // const { schoolList, loadBooklist}  = useContext(GlobalContext);
@@ -7,23 +7,24 @@ export const Header = () => {
     const myFunction = () => {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
-          x.className += " responsive";
+            x.className += " responsive";
         } else {
-          x.className = "topnav";
+            x.className = "topnav";
         }
     }
-    // if (schoolList == null || Object.keys(schoolList).length == 0){
-    //     return <dir>Loading ...</dir>
-    // }
+
+    const unexistPage = () =>{
+        alert("Currently under construction");
+    }
 
     return (
         <>
             <div className="topnav" id="myTopnav">
                 <a href="/">Home</a>
-                <a href="#!">News</a>
-                <a href="#!">Contact</a>
+                <a href="/" onClick={unexistPage}>News</a>
+                <a href="/" onClick={unexistPage}>Contact</a>
                 <a href="/search">Search</a>
-                <a href="#!">小學</a>
+                <a href="/" onClick={unexistPage}>小學</a>
                 <a href="/secondary">中學</a>
 
                 {/* <div className="dropdown">

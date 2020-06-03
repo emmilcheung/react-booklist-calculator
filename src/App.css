@@ -13,7 +13,6 @@ body {
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   min-height: 100vh;
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -21,14 +20,16 @@ body {
 
 .container {
   margin: 30px auto;
+  padding-top: 40px;
   justify-items: center;
   width: 350px;
 }
 
 .searchContainer{
-  margin: 30px auto auto;
+  margin: 70px auto auto;
   justify-items: center;
   width: 95%;
+  z-index:1;
 }
 
 h1 {
@@ -234,16 +235,29 @@ div.scrollbar li, label{
   text-decoration: none;
 }
 
+td {
+  font-size: 5px;
+}
+
+/* In pc browser */
 @media screen and (min-width: 600px){
   .flex-container{
     display: flex;  
-    justify-content: space-around;
+    justify-content: left;
   }
-  .flex-container .searchForm{
+  .flex-container .flex-children{
     margin-right: 20px;
     flex: 1;
   }
   .flex-container .resultTable{
     flex: 2;
+  }
+  .flex-container .searchForm{
+    width: 30%;
+    margin: 100px auto;
+    position: fixed;
+  }
+  td{
+    font-size: 15px;
   }
 }
