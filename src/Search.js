@@ -8,6 +8,7 @@ export default function Home() {
                 <Header />
                 <div className="searchContainer">
                     <SearchForm />
+                    {/* Hallo world */}
                 </div>
             </>
         )
