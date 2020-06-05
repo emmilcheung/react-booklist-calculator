@@ -1,7 +1,8 @@
 .topnav{
-    background-color: rgb(87, 195, 245);
+    /* background-color: rgb(87, 195, 245); */
+    background-color: rgba(153, 117, 51, 0.8);
+    position: absolute;
     width: 100%;
-    position: fixed;
     z-index:1;
 }
 
@@ -38,7 +39,7 @@
 .dropdown-content{
     display: block;
     position: absolute;
-    background-color:rgb(70, 169, 214);
+    background-color: rgb(88, 67, 28);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -54,7 +55,7 @@
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn{
-    background-color: rgb(70, 169, 214);
+    background-color: rgb(88, 67, 28);
     color: white;
 }
 
@@ -67,7 +68,7 @@
     display: block;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     .topnav a:not(:first-child), .dropdown .dropbtn{
         display: none;
     }
@@ -76,8 +77,9 @@
         display:block;
     }
 }
+/* background-color: rgba(153, 117, 51, 0.8); */
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     .topnav.responsive{position: relative;}
     .topnav.responsive a.icon{
         position: absolute;

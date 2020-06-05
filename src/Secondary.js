@@ -5,6 +5,7 @@ import { IncomeExpenses } from './components/IncomeExpenses';
 import { TransactionList } from './components/TransactionList';
 import { AddTranscation } from './components/AddTranscation';
 import { SchoolOptionList } from './components/SchoolOptionList';
+import { TopButton } from './components/TopButton';
 import { GlobalProvider } from './context/GlobalState';
 
 
@@ -15,6 +16,7 @@ function Secondary() {
         <>
             <Header />
             <GlobalProvider >
+                
                 <div className="container">
                 <h2>
                     Textbook calculator (NC37)
@@ -24,14 +26,7 @@ function Secondary() {
                     <SchoolOptionList />
                     <TransactionList />
                     <AddTranscation />
-                    <button
-                        onClick={() => {
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="topBtn"
-                    >
-                        Top
-                    </button>
+                    <TopButton />
                 </div>
             </GlobalProvider>
         </>

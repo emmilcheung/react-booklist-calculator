@@ -34,16 +34,24 @@ export const SearchForm = () => {
                 // console.log(json)
                 setResult(json)
             })
+            .then(() =>{
+                setState({
+                    ...state,
+                    isbn : "",
+                    title : "",
+                    publisher : "",
+                    loading : false
+                })
+            })
             .catch(err => console.log("Err : " + err));
-
-        setState({
-            ...state,
-            loading : false 
-        })
     }
     useEffect(() => {
-        return <h2>Loading</h2>
-    }, [state.loading])
+        return () => console.log("rerender")
+    }, [state])
+
+    if (state.loading){
+        return (<h2>Loading ...</h2>)
+    }
     return (
         <div className="flex-container ">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -101,7 +109,7 @@ export const SearchForm = () => {
                     {
                         (!Object.keys(result).length) ? "" : result.bookList.map((book, i) => {
                             return( 
-                                <tbody key={i}>
+                                <tbody key={i} onClick={() => alert("pass")}>
                                     <tr>
                                         <th scope="row">{i + 1}</th>
                                         <td>{book.ISBN}</td>
@@ -115,6 +123,7 @@ export const SearchForm = () => {
                             
                         })
                     }
+
                 </table>
             </div>
         </div>
