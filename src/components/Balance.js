@@ -10,7 +10,7 @@ export const Balance = () => {
 
     return (
         <>
-            <h4>Your Balance</h4>
+            <h4>Total Price</h4>
             <h1 >${balance.toFixed(1)}</h1>
         </>
     )

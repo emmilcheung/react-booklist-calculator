@@ -13,19 +13,27 @@ import { GlobalProvider } from './context/GlobalState';
 function Secondary() {
     return (
         <>
-        <Header />
-        <GlobalProvider >
-            <h2>
-            Textbook calculator (NC37) 
-            </h2>
-            <div className="container">
-                <Balance />
-                <IncomeExpenses />
-                <SchoolOptionList />
-                <TransactionList />
-                <AddTranscation />
-            </div>
-        </GlobalProvider>
+            <Header />
+            <GlobalProvider >
+                <div className="container">
+                <h2>
+                    Textbook calculator (NC37)
+                </h2>
+                    <Balance />
+                    <IncomeExpenses />
+                    <SchoolOptionList />
+                    <TransactionList />
+                    <AddTranscation />
+                    <button
+                        onClick={() => {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="topBtn"
+                    >
+                        Top
+                    </button>
+                </div>
+            </GlobalProvider>
         </>
     )
 }
