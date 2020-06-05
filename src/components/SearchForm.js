@@ -1,20 +1,25 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import loadingGif from '../data/loading-2.gif'
 
 export const SearchForm = () => {
     const [state, setState] = useState({
         isbn: "",
         title: "",
         publisher: "",
-        loading : false
+        loading: false,
+        warn: false
     });
     const [result, setResult] = useState({});
-
     const onSubmit = e => {
+        e.preventDefault();
+        if (state.isbn === "" && state.title === "" && state.publisher === "") {
+            setState({ ...state, warn: true })
+            return state
+        }
         setState({
             ...state,
-            loading : true
+            loading: true
         })
-        e.preventDefault();
         // console.log(state.isbn, state.title, state.publisher)
         var data = JSON.stringify({
             "ISBN": state.isbn.toString(),
@@ -34,14 +39,17 @@ export const SearchForm = () => {
                 // console.log(json)
                 setResult(json)
             })
-            .then(() =>{
+            .then(() => {
                 setState({
                     ...state,
-                    isbn : "",
-                    title : "",
-                    publisher : "",
-                    loading : false
+                    isbn: "",
+                    title: "",
+                    publisher: "",
+                    loading: false,
+                    warn: false
                 })
+                var element = document.getElementsByClassName("resultTable");
+                element[0].scrollIntoView({ block: "start", behavior: "smooth" })
             })
             .catch(err => console.log("Err : " + err));
     }
@@ -49,49 +57,47 @@ export const SearchForm = () => {
         return () => console.log("rerender")
     }, [state])
 
-    if (state.loading){
-        return (<h2>Loading ...</h2>)
-    }
     return (
-        <div className="flex-container ">
+        <div className="flex-container">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-                    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
+                integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <div className="flex-children"></div>
-            <div className="searchForm">
+            <div className={(state.warn) ? "searchForm warn" : "searchForm"}>
                 <h2>Search Here</h2>
                 <form onSubmit={onSubmit}>
-                    <div className="form-group">
+                    <div className={(state.warn) ? "form-group warn" : "form-group"}>
                         <label htmlFor="ISBN-input">ISBN</label>
-                        <input type="text" className="form-control" id="ISBN-input" value={state.isbn} 
+                        <input type="text" className="form-control" id="ISBN-input" value={state.isbn}
                             onChange={
                                 e => setState({
                                     ...state,
-                                    isbn : e.target.value
+                                    isbn: e.target.value
                                 })
-                            } 
+                            }
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="Title-input">Title</label>
-                        <input type="text" className="form-control" id="Title-input" value={state.title} 
+                        <input type="text" className="form-control" id="Title-input" value={state.title}
                             onChange={
                                 e => setState({
                                     ...state,
-                                    title : e.target.value
+                                    title: e.target.value
                                 })
-                            }  
+                            }
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="Publisher-input">Publisher</label>
-                        <input type="text" className="form-control" id="Publisher-input" value={state.publisher} 
+                        <input type="text" className="form-control" id="Publisher-input" value={state.publisher}
                             onChange={
                                 e => setState({
                                     ...state,
-                                    publisher : e.target.value
+                                    publisher: e.target.value
                                 })
-                            }  
+                            }
                         />
+                        <small>Please at least input one field (or more).</small>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
@@ -108,8 +114,8 @@ export const SearchForm = () => {
                     </thead>
                     {
                         (!Object.keys(result).length) ? "" : result.bookList.map((book, i) => {
-                            return( 
-                                <tbody key={i} onClick={() => alert("pass")}>
+                            return (
+                                <tbody key={i}>
                                     <tr>
                                         <th scope="row">{i + 1}</th>
                                         <td>{book.ISBN}</td>
@@ -120,12 +126,13 @@ export const SearchForm = () => {
                                     </tr>
                                 </tbody>
                             )
-                            
+
                         })
                     }
 
                 </table>
             </div>
+                <div className={state.loading ? "end" : null}></div>
         </div>
     )
 }

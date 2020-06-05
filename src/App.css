@@ -38,7 +38,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  opacity: .6; 
+  opacity: .7; 
 }
 .container {
   margin: 30px auto;
@@ -174,8 +174,8 @@ input[type='number'] {
 }
 .list li.plus.unchosen {
   border-right: 5px solid #075a2a;
-  background-color: rgba(70, 77, 74, 0.178);
-  color: rgb(170, 158, 158);
+  background-color: rgba(70, 77, 74, 0.78);
+  color: rgb(221, 208, 208);
   font-size: 0.8em;
   width: 90%;
   height: 99%;
@@ -337,6 +337,7 @@ div.scrollbar li, label{
 
 .select-css option {
     font-weight:normal;
+    margin: 0px auto;
 }
 
 *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
@@ -358,12 +359,14 @@ div.scrollbar li, label{
   right:30px;
   position: fixed;
   bottom: 20px;
+  width: 2.5em;
+  height: 2.5em;
   background-color: rgb(168, 14, 99);
   color: white;
   border: none;
   border-radius: 5px;
   margin: none;
-  padding: 0px 5px;
+  padding: auto;
   
 }
 
@@ -377,6 +380,24 @@ div.scrollbar li, label{
   margin: 0px auto;
 }
 
+.searchForm small{
+  color: red;
+  display: none;
+}
+
+.warn .form-control{
+    border: 2px solid red;
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+} 
+
+.warn small{
+  display: block;
+}
+
 tbody:hover{
   background-color: oldlace;
 }
@@ -385,8 +406,42 @@ td {
   font-size: 10px;
 }
 
+/* .end{
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left:0;
+  top:0;
+  bottom: 0;
+  right:0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  height: auto;
+} */
+
+.end{
+    position: fixed;
+    min-height:100%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(https://acegif.com/wp-content/uploads/loading-2.gif) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
+    opacity: 0.6;
+}
+
+
+
 /* In pc browser */
 @media screen and (min-width: 800px){
+
+
   .flex-container{
     display: flex;  
     justify-content: left;

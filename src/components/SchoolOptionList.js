@@ -34,7 +34,7 @@ export const SchoolOptionList = () => {
         return (
             <>
                 <select name="school" id="school" className="select-css" onChange={onChange}>
-                    <option value="default">------Please choose a school------</option>
+                    <option value="default">------   Please choose a school   ------</option>
                     {
                         Object.keys(schoolList.bookList).map(id => (
                             <option key={id} value={id}>{schoolList.bookList[id].schoolName}</option>

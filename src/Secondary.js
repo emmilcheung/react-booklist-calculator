@@ -16,16 +16,26 @@ function Secondary() {
         <>
             <Header />
             <GlobalProvider >
-                
+
                 <div className="container">
-                <h2>
-                    Textbook calculator (NC37)
-                </h2>
-                    <Balance />
-                    <IncomeExpenses />
-                    <SchoolOptionList />
-                    <TransactionList />
-                    <AddTranscation />
+                    <h2>
+                        Textbook calculator (NC37)
+                    </h2>
+                    <div className="container-header">
+                        <Balance />
+                        <IncomeExpenses />
+                    </div>
+                    <div className="list-body">
+                        <div className="list-choice">
+                            <SchoolOptionList />
+                            <TransactionList />
+
+                        </div>
+                        <div className="add-list">
+                            <AddTranscation />
+
+                        </div>
+                    </div>
                     <TopButton />
                 </div>
             </GlobalProvider>
