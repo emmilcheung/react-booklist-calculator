@@ -1,3 +1,1 @@
-/secondary /index.html 200
-/search /index.html 200
-/primary/* https://nc37.netlify.app/primary/:splat 200
+/* /index.html 200
