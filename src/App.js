@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home'
+import Primary from './Primary'
 import Secondary from './Secondary'
 import Search from './Search'
 
@@ -13,7 +14,11 @@ function App() {
     <Router>
       <Route path="/" exact component={Home} />
       <Route path="/secondary" exact component={Secondary} />
+      <Route path="/primary/:schoolId" exact component={Primary} />
       <Route path="/search" exact component={Search} />
+      <Route render={() =>
+        (<h1>404</h1>)
+      } />
     </Router>
   );
 }

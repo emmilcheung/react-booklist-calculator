@@ -1,25 +1,25 @@
-import React, {createContext, useState, useReducer, useEffect} from 'react';
+import React, { createContext, useState, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer';
 // import data from '../data/initialState.json';
 
 //Initial state
 const initialState = {
     bookList: [],
-    discount : 0,
-    currentForm : "",
-    schoolDetails : {
-        schoolId : 0,
+    discount: 0,
+    currentForm: "",
+    schoolDetails: {
+        schoolId: 0,
         schoolDiscount: 0,
         schoolIsSet: false
     }
-}; 
+};
 
 //Create context
 export const GlobalContext = createContext(initialState);
 
 //Provider component
 //parameter children = every thing inside <GlobalProvider></GlobalProvider>
-export const GlobalProvider = ({children}) => {
+export const GlobalProvider = ({ constrain, children }) => {
     //state is return object
     //dispatch is function to trigger the state object
     //when triggered, state and parameter in dispatch will send to AppReducer
@@ -27,7 +27,8 @@ export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
     const [schoolList, setSchoolList] = useState({})
     useEffect(() => {
-        fetch("https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec")
+        var queryParams = (constrain == "") ? "" : `?schoolId=${constrain}`
+        fetch(`https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec${queryParams}`)
             .then(res => res.json())
             .then(json => setSchoolList(json))
     }, [])
@@ -47,25 +48,25 @@ export const GlobalProvider = ({children}) => {
         })
     }
 
-    function changeDiscount(discount){
+    function changeDiscount(discount) {
         dispatch({
             type: 'CHANGE_DISCOUNT',
             payload: discount
         })
     }
 
-    function changeState(id){
+    function changeState(id) {
         dispatch({
             type: 'CHANGE_STATE',
             payload: id
         })
     }
 
-    function loadBooklist(payload){
+    function loadBooklist(payload) {
         payload.data = schoolList
         dispatch({
             type: 'LOAD_BOOKLIST',
-            payload: payload 
+            payload: payload
         })
     }
 

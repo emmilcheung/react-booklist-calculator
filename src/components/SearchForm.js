@@ -66,40 +66,51 @@ export const SearchForm = () => {
                 <h2>Search Here</h2>
                 <form onSubmit={onSubmit}>
                     <div className={(state.warn) ? "form-group warn" : "form-group"}>
-                        <label htmlFor="ISBN-input">ISBN</label>
-                        <input type="text" className="form-control" id="ISBN-input" value={state.isbn}
-                            onChange={
-                                e => setState({
-                                    ...state,
-                                    isbn: e.target.value
-                                })
-                            }
-                        />
+                        <label htmlFor="ISBN-input" className="form-label">ISBN</label>
+                        <div className="form-content">
+                            <input type="text" className="form-control" id="ISBN-input" value={state.isbn}
+                                onChange={
+                                    e => setState({
+                                        ...state,
+                                        isbn: e.target.value
+                                    })
+                                }
+                                placeholder="isbn"
+                            />
+                        </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="Title-input">Title</label>
-                        <input type="text" className="form-control" id="Title-input" value={state.title}
-                            onChange={
-                                e => setState({
-                                    ...state,
-                                    title: e.target.value
-                                })
-                            }
-                        />
+                        <label htmlFor="Title-input" className="form-label">Title</label>
+                        <div className="form-content">
+                            <input type="text" className="form-control" id="Title-input" value={state.title}
+                                onChange={
+                                    e => setState({
+                                        ...state,
+                                        title: e.target.value
+                                    })
+                                }
+                                placeholder="書名"
+                            />
+                        </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="Publisher-input">Publisher</label>
-                        <input type="text" className="form-control" id="Publisher-input" value={state.publisher}
-                            onChange={
-                                e => setState({
-                                    ...state,
-                                    publisher: e.target.value
-                                })
-                            }
-                        />
+                        <label htmlFor="Publisher-input" className="form-label">Publisher</label>
+                        <div className="form-content">
+                            <input type="text" className="form-control" id="Publisher-input" value={state.publisher}
+                                onChange={
+                                    e => setState({
+                                        ...state,
+                                        publisher: e.target.value
+                                    })
+                                }
+                                placeholder="出版社"
+                            />
+                        </div>
                         <small>Please at least input one field (or more).</small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="form-button">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
             <div className="resultTable">
@@ -132,7 +143,7 @@ export const SearchForm = () => {
 
                 </table>
             </div>
-                <div className={state.loading ? "end" : null}></div>
+            <div className={state.loading ? "end" : null}></div>
         </div>
     )
 }

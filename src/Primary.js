@@ -1,21 +1,21 @@
 import React from 'react';
-import { Header } from './components/Header';
 import { Balance } from './components/Balance';
 import { IncomeExpenses } from './components/IncomeExpenses';
-import { TransactionList } from './components/TransactionList';
+import { PrimaryList } from './components/PrimaryList';
 import { AddTranscation } from './components/AddTranscation';
-import { SchoolOptionList } from './components/SchoolOptionList';
+import { SchoolDefaultList } from './components/SchoolDefaultList';
 import { TopButton } from './components/TopButton';
 import { GlobalProvider } from './context/GlobalState';
 
 
 
 
-function Secondary() {
+function Primary({match}) {
+    console.log(match.params);
+    const { schoolId } = match.params ;
     return (
         <>
-            <Header />
-            <GlobalProvider constrain="">
+            <GlobalProvider constrain={schoolId}>
 
                 <div className="container">
                     <h2>
@@ -27,8 +27,8 @@ function Secondary() {
                     </div>
                     <div className="list-body">
                         <div className="list-choice">
-                            <SchoolOptionList />
-                            <TransactionList />
+                            <SchoolDefaultList />
+                            <PrimaryList />
 
                         </div>
                         <div className="add-list">
@@ -38,8 +38,8 @@ function Secondary() {
                     <TopButton />
                 </div>
             </GlobalProvider>
-        </>
+        </> 
     )
 }
 
-export default Secondary;
+export default Primary;
