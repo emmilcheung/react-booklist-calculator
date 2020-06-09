@@ -15,11 +15,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/secondary" exact component={Secondary} />
-        <Route path="/primary/:schoolId" exact component={Primary} />
+        <Route path="/primary/:schoolId?" component={Primary} />
         <Route exact path="/search" component={Search} />
-        <Route exact strict path="" component={() =>
+        {/* <Route exact strict path="" component={() =>
           (<h1>404</h1>)
-        } />
+        } /> */}
       </Switch>
     </Router>
   );
