@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home'
 import Primary from './Primary'
 import Secondary from './Secondary'
@@ -12,13 +12,15 @@ import './navbar.css'
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={Home} />
-      <Route path="/secondary" exact component={Secondary} />
-      <Route path="/primary/:schoolId" exact component={Primary} />
-      <Route path="/search" exact component={Search} />
-      <Route render={() =>
-        (<h1>404</h1>)
-      } />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/secondary" exact component={Secondary} />
+        <Route path="/primary/:schoolId" exact component={Primary} />
+        <Route exact path="/search" component={Search} />
+        <Route exact strict path="" component={() =>
+          (<h1>404</h1>)
+        } />
+      </Switch>
     </Router>
   );
 }
