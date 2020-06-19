@@ -24,6 +24,7 @@ export const Header = () => {
                 <a href="/" onClick={unexistPage}>News</a>
                 <a href="/" onClick={unexistPage}>Contact</a>
                 <a href="/search">Search</a>
+                <a href="/repurchase">小學補購</a>
                 <a href="/" onClick={unexistPage}>小學</a>
                 <a href="/secondary">中學</a>
 

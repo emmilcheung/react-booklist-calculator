@@ -8,7 +8,7 @@ import { SchoolOptionList } from './components/SchoolOptionList';
 import { TopButton } from './components/TopButton';
 import { GlobalProvider } from './context/GlobalState';
 
-
+import './App.css';
 
 
 function Secondary() {
