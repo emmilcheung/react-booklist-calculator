@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Header } from './components/Header'
 import { RepurchaseTable } from './components/RepurchaseTable'
+import { AddRepurchase } from './components/AddRepurchase'
 import { TopButton } from './components/TopButton'
-import { Redirect } from 'react-router-dom'
 
 import './repurchase.css'
 import './navbar.css'
 
-export default function Home() {
+export default function Repurchase() {
+    const url = "http://nc37test.pythonanywhere.com/"
+    // const url = "http://localhost:5000/"
     const cookieInJson = () => {
         var obj = {};
         document.cookie.split(';').forEach(cookie => {
@@ -17,22 +19,31 @@ export default function Home() {
     }
     const initialState = {
         repurchaseOrderArray: [],
-        logged_in: cookieInJson()['jwt-token'] ? true : false
+        logged_in: cookieInJson()['jwt-token'] ? true : false,
+        loading: false,
+        add: false
     }
     const [state, setState] = useState(initialState)
     const [toggle, setToggle] = useState(true)
 
     const fetchOrder = () => {
         // var data;
-        return fetch('http://nc37test.pythonanywhere.com/repurchase', {
+
+        return fetch(`${url}repurchase`, {
             headers: {
                 'x-access-token': cookieInJson()['jwt-token']
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status !== 200) {
+                    throw new Error(res.status)
+                }
+                return res.json()
+            })
             .then(data => {
                 setState({
                     ...state,
+                    loading: false,
                     //object apiContent is original data from fetch, edit is used to define is it a change item
                     repurchaseOrderArray: data.dataArray.map(order => {
                         return {
@@ -42,16 +53,25 @@ export default function Home() {
                     })
                 })
             })
+            .catch(err => {
+                console.log(err)
+                document.cookie = `jwt-token=;Max-age=0`
+                // window.location.replace('/')
+            })
         // console.log(data)
         // return data
     }
 
     useEffect(() => {
+        setState({
+            ...state,
+            loading: true
+        })
         fetchOrder()
     }, [toggle])
 
-    
-    if (!state.logged_in){
+
+    if (!state.logged_in) {
         window.location.replace('/')
     }
 
@@ -61,15 +81,26 @@ export default function Home() {
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <Header />
             <div className="container">
+                {
+                    state.loading
+                        ? null
 
-                
-
-                <RepurchaseTable
-                    orderArray={state.repurchaseOrderArray}
-                />
-
+                        : (
+                            <>
+                                <RepurchaseTable
+                                    orderArray={state.repurchaseOrderArray}
+                                />
+                                <AddRepurchase
+                                    url={url}
+                                    token={cookieInJson()['jwt-token']}
+                                    toggle={toggle}
+                                    setToggle={setToggle}
+                                />
+                            </>)
+                }
                 {/* <button onClick={fetchOrder}>fetch text</button> */}
                 <TopButton />
+                {/* if is add  */}
             </div>
         </>
     )

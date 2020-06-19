@@ -5,6 +5,8 @@ import jwt from 'jsonwebtoken'
 import './App.css';
 
 export default function Home() {
+    const url = "http://nc37test.pythonanywhere.com/"
+    // const url = "http://localhost:5000/"
     const cookieInJson = () => {
         var obj = {};
         document.cookie.split(';').forEach(cookie => {
@@ -13,7 +15,7 @@ export default function Home() {
         return obj
     }
     const loginBtn = () => {
-        fetch('http://nc37test.pythonanywhere.com/auth', {
+        fetch(`${url}auth`, {
             headers: {
                 // 'Access-Control-Allow-Origin': "http://localhost:5000",
                 'Authorization': 'Basic ZW1taWw6MTIzNDU=',
@@ -22,7 +24,7 @@ export default function Home() {
 
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             // var decode = jwt.decode(data.token)
             // console.log(new Date(jwt.decode(data.token).exp * 1000))
             document.cookie = `jwt-token=${data.token}; expires= ${new Date(jwt.decode(data.token).exp * 1000)}`

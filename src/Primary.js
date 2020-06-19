@@ -7,7 +7,7 @@ import { SchoolDefaultList } from './components/SchoolDefaultList';
 import { TopButton } from './components/TopButton';
 import { GlobalProvider } from './context/GlobalState';
 
-
+import './App.css';
 
 
 function Primary({match}) {

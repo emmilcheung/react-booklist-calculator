@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { RepurchaseOrder } from './RepurchaseOrder'
 
-export const RepurchaseTable = ({ orderArray }) => {
-    console.log(orderArray)
+export const RepurchaseTable = ({ url,orderArray }) => {
 
     const [state, setState] = useState('')
     return (
@@ -49,6 +48,7 @@ export const RepurchaseTable = ({ orderArray }) => {
                                 id= {index}
                                 orderInfo={order.apiContent}
                                 edit={order.edit}
+                                url={url}
                             />)
                         })
                     }
