@@ -8,7 +8,7 @@ import './repurchase.css'
 import './navbar.css'
 
 export default function Repurchase() {
-    const url = "http://nc37test.pythonanywhere.com/"
+    const url = "https://nc37test.pythonanywhere.com/"
     // const url = "http://localhost:5000/"
     const cookieInJson = () => {
         var obj = {};
