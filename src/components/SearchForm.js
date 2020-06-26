@@ -12,7 +12,7 @@ export const SearchForm = () => {
     const [result, setResult] = useState({});
     const onSubmit = e => {
         e.preventDefault();
-        if (state.isbn === "" && state.title === "" && state.publisher === "") {
+        if (state.isbn.replace(/\n/g, "") === "" && state.title === "" && state.publisher === "") {
             setState({ ...state, warn: true })
             return state
         }
@@ -22,7 +22,7 @@ export const SearchForm = () => {
         })
         // console.log(state.isbn, state.title, state.publisher)
         var data = JSON.stringify({
-            "ISBN": state.isbn.toString(),
+            "ISBN": state.isbn.toString().replace(/\n/g, ","),
             "Title": state.title.toString(),
             "Publisher": state.publisher.toString()
         })
@@ -52,6 +52,7 @@ export const SearchForm = () => {
                 element[0].scrollIntoView({ block: "start", behavior: "smooth" })
             })
             .catch(err => console.log("Err : " + err));
+        // console.log(data)
     }
     useEffect(() => {
         return () => console.log("rerender")
@@ -68,7 +69,7 @@ export const SearchForm = () => {
                     <div className={(state.warn) ? "form-group warn" : "form-group"}>
                         <label htmlFor="ISBN-input" className="form-label">ISBN</label>
                         <div className="form-content">
-                            <input type="text" className="form-control" id="ISBN-input" value={state.isbn}
+                            <textarea className="form-control" id="ISBN-input" value={state.isbn}
                                 onChange={
                                     e => setState({
                                         ...state,
@@ -76,6 +77,7 @@ export const SearchForm = () => {
                                     })
                                 }
                                 placeholder="isbn"
+                                rows="4"
                             />
                         </div>
                     </div>
@@ -106,8 +108,8 @@ export const SearchForm = () => {
                                 placeholder="出版社"
                             />
                         </div>
-                        <small>Please at least input one field (or more).</small>
                     </div>
+                    <small>Please at least input one field (or more).</small>
                     <div className="form-button">
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>

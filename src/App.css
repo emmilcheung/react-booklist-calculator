@@ -502,7 +502,7 @@ td {
 
 /* In pc browser */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
     .searchContainer {
         width: 95%;
     }

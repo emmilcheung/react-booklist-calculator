@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { RepurchaseOrder } from './RepurchaseOrder'
 
-export const RepurchaseTable = ({ url,orderArray }) => {
+export const RepurchaseTable = ({ url, orderArray }) => {
 
     const [state, setState] = useState('')
     return (
-        <div className="table-responsive-sm">
+        <div className="table-responsive-xl">
             {/* { JSON.stringify(orderArray)} */}
             <table className="table">
                 <thead>
@@ -40,16 +40,18 @@ export const RepurchaseTable = ({ url,orderArray }) => {
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody >
+                <tbody>
                     {
-                        orderArray.map((order, index) =>{
-                            return (<RepurchaseOrder 
-                                key={index}
-                                id= {index}
-                                orderInfo={order.apiContent}
-                                edit={order.edit}
-                                url={url}
-                            />)
+                        orderArray.map((order, index) => {
+                            return (
+                                <RepurchaseOrder
+                                    key={index}
+                                    id={index}
+                                    orderInfo={order.apiContent}
+                                    edit={order.edit}
+                                    url={url}
+                                />
+                            )
                         })
                     }
                 </tbody>
