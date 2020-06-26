@@ -468,7 +468,7 @@ label {
 table.table{
     margin: 0;
 }
-tbody:hover {
+tr:hover {
     background-color: oldlace;
 }
 

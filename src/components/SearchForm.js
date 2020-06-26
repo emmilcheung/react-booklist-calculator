@@ -125,11 +125,11 @@ export const SearchForm = () => {
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
+                    <tbody >
                     {
                         (!Object.keys(result).length) ? "" : result.bookList.map((book, i) => {
                             return (
-                                <tbody key={i}>
-                                    <tr>
+                                    <tr key={i}>
                                         <th scope="row">{i + 1}</th>
                                         <td>{book.ISBN}</td>
                                         <td>
@@ -137,11 +137,11 @@ export const SearchForm = () => {
                                         </td>
                                         <td>${parseFloat(book.Price).toFixed(1)}</td>
                                     </tr>
-                                </tbody>
                             )
-
+                            
                         })
                     }
+                    </tbody>
 
                 </table>
             </div>
