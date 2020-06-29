@@ -5,7 +5,7 @@ export const Balance = () => {
     const {bookList, discount}  = useContext(GlobalContext);
     const amounts = bookList.filter(book => book.isChosen === true)
                                 .map(book => book.amount);
-    const balance = amounts.reduce((acc,item) => acc += parseFloat((item*(1-discount)).toFixed(1)), 0)
+    const balance = amounts.reduce((acc,item) => acc += Math.round(item*(1-discount) * 10) / 10 , 0)
 
 
     return (
