@@ -19,7 +19,7 @@ export const GlobalContext = createContext(initialState);
 
 //Provider component
 //parameter children = every thing inside <GlobalProvider></GlobalProvider>
-export const GlobalProvider = ({ constrain, children }) => {
+export const GlobalProvider = ({ constrain, type, children }) => {
     //state is return object
     //dispatch is function to trigger the state object
     //when triggered, state and parameter in dispatch will send to AppReducer
@@ -28,7 +28,16 @@ export const GlobalProvider = ({ constrain, children }) => {
     const [schoolList, setSchoolList] = useState({})
     useEffect(() => {
         var queryParams = (constrain == "") ? "" : `?schoolId=${constrain}`
-        fetch(`https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec${queryParams}`)
+        var primaryURL = `https://script.google.com/macros/s/AKfycbz8cIoZjXOn5tKdaAUZAAxOuXEYt1KVXzzmHL3Drncb4rp7PyE/exec${queryParams}`
+        var secondaryURL = `https://script.google.com/macros/s/AKfycbxW8KBDw1uChb1e9uhwbHLPQvf76cowyEo7QKsl71caziD1HVkP/exec${queryParams}`
+        var url;
+        if (type == 'Primary'){
+            url = primaryURL
+        }
+        else if(type == 'Secondary'){
+            url = secondaryURL
+        }
+        fetch(url)
             .then(res => res.json())
             .then(json => setSchoolList(json))
     }, [])

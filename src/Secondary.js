@@ -15,7 +15,7 @@ function Secondary() {
     return (
         <>
             <Header />
-            <GlobalProvider constrain="">
+            <GlobalProvider constrain="" type={"Secondary"}>
 
                 <div className="container">
                     <h2>
