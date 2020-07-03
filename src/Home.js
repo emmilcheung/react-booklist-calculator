@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header } from './components/Header'
 import jwt from 'jsonwebtoken'
 
 import './App.css';
 
 export default function Home() {
+
+    const [state, setState] = useState({
+        username: "",
+        password: ""
+    })
     const url = "https://nc37test.pythonanywhere.com/"
     // const url = "http://localhost:5000/"
     const cookieInJson = () => {
@@ -15,23 +20,26 @@ export default function Home() {
         return obj
     }
     const loginBtn = () => {
+
+        // console.log(Buffer.from(`${state.username}:${state.password}`).toString('base64'))
         fetch(`${url}auth`, {
             headers: {
                 // 'Access-Control-Allow-Origin': "http://localhost:5000",
-                'Authorization': 'Basic ZW1taWw6MTIzNDU=',
+                'Authorization': "Basic "+Buffer.from(`${state.username}:${state.password}`).toString('base64'),
             }
         })
 
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data)
-            // var decode = jwt.decode(data.token)
-            // console.log(new Date(jwt.decode(data.token).exp * 1000))
-            document.cookie = `jwt-token=${data.token}; expires= ${new Date(jwt.decode(data.token).exp * 1000)}`
-            window.location.reload()
-        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                // var decode = jwt.decode(data.token)
+                // console.log(new Date(jwt.decode(data.token).exp * 1000))
+                document.cookie = `jwt-token=${data.token}; expires= ${new Date(jwt.decode(data.token).exp * 1000)}`
+                window.location.reload()
+            })
     }
     const logoutBtn = () => {
+        console.log("logout?")
         // fetch('http://localhost:5000/logout', {
         //     headers: {
         //         'x-access-token': cookieInJson()['jwt-token']
@@ -50,10 +58,39 @@ export default function Home() {
             <div className="container">
 
                 <h2>Welcome</h2>
-                <div style={{ width: "50vh", textAlign: "center" }}>
+                <div style={{ width: "30vw", textAlign: "center" }}>
                     {
                         !cookieInJson()['jwt-token']
-                            ? <button className="btn btn-outline-primary" onClick={loginBtn}>login</button>
+                            ? (<>
+                                <div className="form-group">
+                                    <label htmlFor="username">username</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="username"
+                                        value={state.username}
+                                        onChange={e => setState({
+                                            ...state,
+                                            username: e.target.value
+                                        })}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        placeholder="Password"
+                                        value={state.password}
+                                        onChange={e => setState({
+                                            ...state,
+                                            password: e.target.value
+                                        })}
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary" onClick={loginBtn}>Submit</button>
+                            </>)
                             : <button className="btn btn-outline-danger" onClick={logoutBtn}>Logout</button>
                     }
                 </div>

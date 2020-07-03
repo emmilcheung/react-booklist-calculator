@@ -1,3 +1,28 @@
-i.fa-edit:hover{
+i.fas{
+    transition: 0.1s ease-out;
+}
+i.fas:hover{
     transform: scale(1.5);
+}
+
+table td{
+    padding: auto 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+table.date{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+table.button{
+    padding-right: 2em;
+}
+
+.inside input{
+    padding: 0.1em 0.3em;
+    display: inline-block;
+    border-radius: 5px;
 }

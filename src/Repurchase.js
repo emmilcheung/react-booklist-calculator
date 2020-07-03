@@ -3,9 +3,9 @@ import { Header } from './components/Header'
 import { RepurchaseTable } from './components/RepurchaseTable'
 import { AddRepurchase } from './components/AddRepurchase'
 import { TopButton } from './components/TopButton'
+import jwt from 'jsonwebtoken'
 
 import './repurchase.css'
-import './navbar.css'
 
 export default function Repurchase() {
     const url = "https://nc37test.pythonanywhere.com/"
@@ -21,15 +21,17 @@ export default function Repurchase() {
         repurchaseOrderArray: [],
         logged_in: cookieInJson()['jwt-token'] ? true : false,
         loading: false,
-        add: false
+        admin: false,
+        currentEdit: -1,
     }
     const [state, setState] = useState(initialState)
+    const [backup, setBackup] = useState('')
     const [toggle, setToggle] = useState(true)
 
-    const fetchOrder = () => {
+    const fetchOrder = async () => {
         // var data;
 
-        return fetch(`${url}repurchase`, {
+        return await fetch(`${url}repurchase`, {
             headers: {
                 'x-access-token': cookieInJson()['jwt-token']
             }
@@ -41,16 +43,18 @@ export default function Repurchase() {
                 return res.json()
             })
             .then(data => {
+                data.dataArray.sort((a, b) => {
+                    if (a.list_id < b.list_id) return -1
+                    if (a.list_id > b.list_id) return 1
+                    return 0
+                })
+                setBackup([...data.dataArray])
                 setState({
                     ...state,
                     loading: false,
+                    admin: jwt.decode(cookieInJson()['jwt-token']).admin,
                     //object apiContent is original data from fetch, edit is used to define is it a change item
-                    repurchaseOrderArray: data.dataArray.map(order => {
-                        return {
-                            apiContent: order,
-                            edit: false
-                        }
-                    })
+                    repurchaseOrderArray: data.dataArray
                 })
             })
             .catch(err => {
@@ -60,6 +64,106 @@ export default function Repurchase() {
             })
         // console.log(data)
         // return data
+    }
+
+    const changeOrderState = (index, orderContent) => {
+        var orderArray = state.repurchaseOrderArray
+        orderArray[index] = orderContent
+        setState({
+            ...state,
+            repurchaseOrderArray: [...orderArray]
+        })
+    }
+
+    const saveChange = (id) => {
+        setBackup([...state.repurchaseOrderArray])
+        console.log(state.repurchaseOrderArray[id])
+        onSubmit(id)
+        setState({
+            ...state,
+            currentEdit: -1
+        })
+    }
+
+    const removeChange = () => {
+        setState({
+            ...state,
+            repurchaseOrderArray: [...backup],
+            currentEdit: -1
+        })
+    }
+    const changeEdit = (id) => {
+        setState({
+            ...state,
+            repurchaseOrderArray: [...backup],
+            currentEdit: id
+        })
+    }
+
+    const onSubmit = (id) => {
+        // e.preventDefault()
+        if (!state.repurchaseOrderArray[id].student_name || !state.repurchaseOrderArray[id].phone_no || !state.repurchaseOrderArray[id].school || !state.repurchaseOrderArray[id].grade) {
+            return
+        }
+        console.log(state.repurchaseOrderArray[id])
+        var payload = JSON.stringify(state.repurchaseOrderArray[id]);
+        fetch(`${url}repurchase/${state.repurchaseOrderArray[id].public_id}`, {
+            method: 'PUT',
+            body: payload,
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': cookieInJson()['jwt-token']
+            }
+        })
+            .then(res => res.json())
+            .then(message => {
+                console.log(message)
+                setToggle(!toggle)
+            })
+    }
+
+    const removeOrder = async (id) => {
+        if (window.confirm(`確認刪除 [${state.repurchaseOrderArray[id].student_name}] 的訂購?`)) {
+            await fetch(`${url}repurchase/${state.repurchaseOrderArray[id].public_id}`, {
+                method: 'DELETE',
+                headers: {
+                    'x-access-token': cookieInJson()['jwt-token']
+                }
+            })
+                .then(res => res.json())
+                .then(message => {
+                    console.log(message)
+                    setToggle(!toggle)
+                })
+        }
+    }
+
+    const getSelectedOrder = () => {
+        var checked= Array.from(document.querySelectorAll(".selected-order"))
+        return checked.filter(order => order.checked)
+                      .map(order => parseInt(order.value))
+    }
+
+    const constructExportCSV = (idArray) => {
+        var data = idArray.map(id => state.repurchaseOrderArray[id])
+        var dataStrings = data.map(order => `${order.student_name},${order.phone_no},${order.school},${order.grade}`)
+                              .join("\n")
+        return dataStrings
+    }
+
+    const exportCSV = () => {
+        var selectedOrder = getSelectedOrder()
+        if(!selectedOrder.length) return
+        console.log(constructExportCSV(selectedOrder))
+        const blob = new Blob([constructExportCSV(selectedOrder)], {type: 'text/csv'})
+        const a = document.createElement('a')
+        a.setAttribute('hidden', '')
+        a.setAttribute('href', window.URL.createObjectURL(blob))
+        a.setAttribute('download', 'download.csv')
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        setToggle(!toggle)
     }
 
     useEffect(() => {
@@ -89,7 +193,24 @@ export default function Repurchase() {
                             <>
                                 <RepurchaseTable
                                     orderArray={state.repurchaseOrderArray}
+                                    admin={state.admin}
+                                    currentEdit={state.currentEdit}
+                                    changeEdit={changeEdit}
+                                    changeState={changeOrderState}
+                                    saveChange={saveChange}
+                                    removeChange={removeChange}
+                                    removeOrder={removeOrder}
                                 />
+                                <div className="d-flex justify-content-end">
+                                    <div>
+                                        <button className="btn btn-success" onClick={exportCSV}>Export CSV</button>
+                                    </div>
+                                    <div className="">
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i className="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
                                 <AddRepurchase
                                     url={url}
                                     token={cookieInJson()['jwt-token']}
@@ -98,9 +219,7 @@ export default function Repurchase() {
                                 />
                             </>)
                 }
-                {/* <button onClick={fetchOrder}>fetch text</button> */}
                 <TopButton />
-                {/* if is add  */}
             </div>
         </>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 
 export const AddRepurchase = ({toggle, setToggle, token, url}) => {
     const [state, setState] = useState({
@@ -26,7 +26,7 @@ export const AddRepurchase = ({toggle, setToggle, token, url}) => {
                 'x-access-token' : token
             }
         })
-         .then(res => res.json)
+         .then(res => res.json())
          .then(message => {
              console.log(message)
              console.log(document.querySelector('.markForChange'))
@@ -38,16 +38,9 @@ export const AddRepurchase = ({toggle, setToggle, token, url}) => {
     }
     return (
         <>
-            <div className="d-flex flex-row-reverse">
-                <div className="">
 
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                        Add new
-                    </button>
-                </div>
-            </div>
 
-            <div className="markForChange modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="markForChange modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -116,7 +109,6 @@ export const AddRepurchase = ({toggle, setToggle, token, url}) => {
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" className="btn btn-primary" onClick={onSubmit}>Save changes</button>
                         </div>
                     </div>

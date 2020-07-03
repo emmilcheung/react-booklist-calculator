@@ -468,7 +468,12 @@ label {
 table.table{
     margin: 0;
 }
-tr:hover {
+
+tbody tr{
+    cursor: pointer;
+}
+
+tbody tr:hover {
     background-color: oldlace;
 }
 
