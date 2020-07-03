@@ -43,6 +43,13 @@ export default function Repurchase() {
                 return res.json()
             })
             .then(data => {
+                if (Object.keys(data).includes('message')){
+                    setState({
+                        ...state,
+                        loading: false
+                    })
+                    return {}
+                }
                 data.dataArray.sort((a, b) => {
                     if (a.list_id < b.list_id) return -1
                     if (a.list_id > b.list_id) return 1
