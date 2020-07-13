@@ -39,7 +39,6 @@ export const RepurchaseOrder = ({
                     ? (
                         <tr onKeyPress={handleKeyPress} >
                             <th scope="row">
-                                {id + 1}
                             </th>
                             <td>
                                 <div className="inside">

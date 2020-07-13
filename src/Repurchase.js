@@ -163,7 +163,8 @@ export default function Repurchase() {
         var selectedOrder = getSelectedOrder()
         if (!selectedOrder.length) return
         console.log(constructExportCSV(selectedOrder))
-        const blob = new Blob([constructExportCSV(selectedOrder)], { type: 'text/csv' })
+        const blob = new Blob(["\ufeff",constructExportCSV(selectedOrder)], { type: 'text/csv' })
+        console.log(blob)
         const a = document.createElement('a')
         a.setAttribute('hidden', '')
         a.setAttribute('href', window.URL.createObjectURL(blob))
