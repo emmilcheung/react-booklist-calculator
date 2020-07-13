@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Header } from './components/Header'
 import { RepurchaseTable } from './components/RepurchaseTable'
-import { AddRepurchase } from './components/AddRepurchase'
 import { TopButton } from './components/TopButton'
 import jwt from 'jsonwebtoken'
 
@@ -27,6 +26,7 @@ export default function Repurchase() {
     const [state, setState] = useState(initialState)
     const [backup, setBackup] = useState('')
     const [toggle, setToggle] = useState(true)
+    const [newOrder, setNewOrder] = useState(false) 
 
     const fetchOrder = async () => {
         // var data;
@@ -43,7 +43,7 @@ export default function Repurchase() {
                 return res.json()
             })
             .then(data => {
-                if (Object.keys(data).includes('message')){
+                if (Object.keys(data).includes('message')) {
                     setState({
                         ...state,
                         loading: false
@@ -100,6 +100,7 @@ export default function Repurchase() {
         })
     }
     const changeEdit = (id) => {
+        setNewOrder(false)
         setState({
             ...state,
             repurchaseOrderArray: [...backup],
@@ -146,23 +147,23 @@ export default function Repurchase() {
     }
 
     const getSelectedOrder = () => {
-        var checked= Array.from(document.querySelectorAll(".selected-order"))
+        var checked = Array.from(document.querySelectorAll(".selected-order"))
         return checked.filter(order => order.checked)
-                      .map(order => parseInt(order.value))
+            .map(order => parseInt(order.value))
     }
 
     const constructExportCSV = (idArray) => {
         var data = idArray.map(id => state.repurchaseOrderArray[id])
         var dataStrings = data.map(order => `${order.student_name},${order.phone_no},${order.school},${order.grade}`)
-                              .join("\n")
+            .join("\n")
         return dataStrings
     }
 
     const exportCSV = () => {
         var selectedOrder = getSelectedOrder()
-        if(!selectedOrder.length) return
+        if (!selectedOrder.length) return
         console.log(constructExportCSV(selectedOrder))
-        const blob = new Blob([constructExportCSV(selectedOrder)], {type: 'text/csv'})
+        const blob = new Blob([constructExportCSV(selectedOrder)], { type: 'text/csv' })
         const a = document.createElement('a')
         a.setAttribute('hidden', '')
         a.setAttribute('href', window.URL.createObjectURL(blob))
@@ -191,7 +192,7 @@ export default function Repurchase() {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <Header />
-            <div className="container">
+            <div className="container-lg" style={{marginTop: "10vh"}}>
                 {
                     state.loading
                         ? null
@@ -199,6 +200,8 @@ export default function Repurchase() {
                         : (
                             <>
                                 <RepurchaseTable
+                                    url={url}
+                                    token={cookieInJson()['jwt-token']}
                                     orderArray={state.repurchaseOrderArray}
                                     admin={state.admin}
                                     currentEdit={state.currentEdit}
@@ -207,23 +210,24 @@ export default function Repurchase() {
                                     saveChange={saveChange}
                                     removeChange={removeChange}
                                     removeOrder={removeOrder}
+                                    newOrder={newOrder}
+                                    setNewOrder={setNewOrder}
                                 />
                                 <div className="d-flex justify-content-end">
                                     <div>
                                         <button className="btn btn-success" onClick={exportCSV}>Export CSV</button>
                                     </div>
                                     <div className="">
-                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
+                                            onClick={() => {
+                                                removeChange();
+                                                setNewOrder(true)}
+                                            }
+                                        >
                                             <i className="fas fa-plus"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <AddRepurchase
-                                    url={url}
-                                    token={cookieInJson()['jwt-token']}
-                                    toggle={toggle}
-                                    setToggle={setToggle}
-                                />
                             </>)
                 }
                 <TopButton />

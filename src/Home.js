@@ -56,18 +56,19 @@ export default function Home() {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <div className="container">
-
                 <h2>Welcome</h2>
-                <div style={{ width: "30vw", textAlign: "center" }}>
+                <div style={{ maxWidth: "30rem", textAlign: "center" }}>
                     {
                         !cookieInJson()['jwt-token']
-                            ? (<>
+                            ? (
+                                <>
                                 <div className="form-group">
                                     <label htmlFor="username">username</label>
                                     <input
                                         type="text"
                                         className="form-control"
                                         id="username"
+                                        placeholder="username"
                                         value={state.username}
                                         onChange={e => setState({
                                             ...state,
@@ -81,7 +82,7 @@ export default function Home() {
                                         type="password"
                                         className="form-control"
                                         id="password"
-                                        placeholder="Password"
+                                        placeholder="password"
                                         value={state.password}
                                         onChange={e => setState({
                                             ...state,

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { RepurchaseOrder } from './RepurchaseOrder'
+import { NewPurchaseOrder } from './NewRepurchaseOrder'
 
 export const RepurchaseTable = ({
     url,
+    token,
     orderArray,
     admin,
     currentEdit,
@@ -11,6 +13,8 @@ export const RepurchaseTable = ({
     saveChange,
     removeChange,
     removeOrder,
+    newOrder,
+    setNewOrder,
 
 }) => {
 
@@ -67,10 +71,18 @@ export const RepurchaseTable = ({
                                     saveChange={saveChange}
                                     removeChange={removeChange}
                                     removeOrder={removeOrder}
-                                    url={url}
                                 />
                             )
                         })
+                    }
+                    {
+                        (newOrder)
+                            ? <NewPurchaseOrder
+                                url={url}
+                                token={token}
+                                setNewOrder={setNewOrder}
+                            />
+                            : null
                     }
                 </tbody>
             </table>

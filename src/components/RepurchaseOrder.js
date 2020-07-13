@@ -24,7 +24,6 @@ export const RepurchaseOrder = ({
         return `${(dateJS.getMonth() + 1).toString().padStart(2, "0")}-${(dateJS.getDate()).toString().padStart(2, "0")}`
     }
     const handleKeyPress = e => {
-        console.log(e.keyCode)
         if (e.keyCode === 27) {
             removeChange()
         }
@@ -87,8 +86,9 @@ export const RepurchaseOrder = ({
                                 </div>
                             </td>
                             <td>
-                                <div className="inside">
+                                <div>
                                     <textarea id="remarks" value={orderInfo.remarks ? orderInfo.remarks : ""}
+                                        cols="30"
                                         onChange={e => changeState(id, {
                                             ...orderInfo,
                                             remarks: e.target.value.replace(/\n/g, " ")
@@ -168,7 +168,7 @@ export const RepurchaseOrder = ({
                             </div>
                         </td>
                         <td>{orderInfo.grade}</td>
-                        <td>{orderInfo.remarks}</td>
+                        <td>{(orderInfo.remarks && orderInfo.remarks.length > 10)? `${orderInfo.remarks.slice(0, 15)}...` : orderInfo.remarks }</td>
                         <td className="date">
                             <div >
                                 {orderInfo.record_date ? getDate(orderInfo.record_date) : null}
@@ -188,7 +188,7 @@ export const RepurchaseOrder = ({
                             <i className="fas fa-edit" onClick={() => changeEdit(id)}></i>
                             {
                                 admin
-                                    ? (<> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    ? (<> &nbsp;&nbsp;
                                         <i className="fas fa-trash" aria-hidden="true" onClick={() => removeOrder(id)}></i> </>)
                                     : null
                             }
