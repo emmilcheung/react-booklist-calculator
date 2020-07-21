@@ -3,17 +3,26 @@ import { Transaction } from './Transaction'
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionList = () => {
-    const { schoolList, bookList, schoolDetails, changeDiscount, loadBooklist } = useContext(GlobalContext);
+    const { schoolList, bookList, schoolDetails, changeDiscount, loadBooklist, changeState } = useContext(GlobalContext);
     const setForm = e => {
         loadBooklist({ schoolId: schoolDetails.schoolId, year: e.target.value });
     }
-    const setDiscount = e =>{
+    const setDiscount = e => {
         // console.log(e.target.value);
         changeDiscount(e.target.value);
     }
     const yearButton = schoolDetails.schoolIsSet ? '' : 'none';
 
-
+    const chooseAll = () => {
+        bookList.forEach(book => {
+            changeState({ id: book.id, cState: true })
+        })
+    }
+    const unchooseAll = () => {
+        bookList.forEach(book => {
+            changeState({ id: book.id, cState: false })
+        })
+    }
 
 
     //year form list button
@@ -22,7 +31,7 @@ export const TransactionList = () => {
         formlist = Object.keys(schoolList.bookList[schoolDetails.schoolId])
             .filter(form => form !== "discount")
             .filter(form => form !== "schoolName")
-            .map((form,i) => {
+            .map((form, i) => {
                 return (<><input type="radio" key={i} id={form} name="form" value={form}></input><label htmlFor={form}>{form}</label></>)
             })
     }
@@ -43,7 +52,7 @@ export const TransactionList = () => {
                     <label htmlFor="shopDiscount">(門市)95折</label>
 
                     <input type="radio" id="schoolDiscount" name="discount" value={schoolDetails.schoolDiscount} />
-                    <label htmlFor="schoolDiscount" style={{display: yearButton}}>學校折</label>
+                    <label htmlFor="schoolDiscount" style={{ display: yearButton }}>學校折</label>
                 </div>
                 {/* <button onClick={() => changeDiscount(0)} className="discont-btn">原價</button>
                 <button onClick={() => changeDiscount(0.05)} className="discont-btn">95折</button>
@@ -52,6 +61,12 @@ export const TransactionList = () => {
             <div style={{ display: yearButton }} className="radioBtn scrollbar" onChange={setForm.bind(this)}>
                 {formlist}
 
+            </div>
+            <div className="unchoose-btn">
+                <button id="choose-btn" onClick={chooseAll} />
+                <label htmlFor="choose-btn">全部選擇</label>
+                <button id="unchoose-btn" onClick={unchooseAll} />
+                <label htmlFor="unchoose-btn">全部取消</label>
             </div>
             <br />
             <ul className="list">
