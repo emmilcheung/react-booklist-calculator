@@ -49,7 +49,7 @@ export const RepurchaseTable = ({
                             Contact date
                         </th>
                         <th scope="col" className="date" style={{ width: "8.33%" }}>
-                            Finish date
+                            Arrived date
                         </th>
                         <th scope="col" className="button">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

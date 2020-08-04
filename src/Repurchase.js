@@ -26,7 +26,7 @@ export default function Repurchase() {
     const [state, setState] = useState(initialState)
     const [backup, setBackup] = useState('')
     const [toggle, setToggle] = useState(true)
-    const [newOrder, setNewOrder] = useState(false) 
+    const [newOrder, setNewOrder] = useState(false)
 
     const fetchOrder = async () => {
         // var data;
@@ -38,7 +38,7 @@ export default function Repurchase() {
         })
             .then(res => {
                 if (res.status !== 200) {
-                    throw new Error(res.status)
+                    return new Error(res.status)
                 }
                 return res.json()
             })
@@ -67,7 +67,7 @@ export default function Repurchase() {
             .catch(err => {
                 console.log(err)
                 document.cookie = `jwt-token=;Max-age=0`
-                // window.location.replace('/')
+                window.location.replace('/')
             })
         // console.log(data)
         // return data
@@ -113,7 +113,7 @@ export default function Repurchase() {
         if (!state.repurchaseOrderArray[id].student_name || !state.repurchaseOrderArray[id].phone_no || !state.repurchaseOrderArray[id].school || !state.repurchaseOrderArray[id].grade) {
             return
         }
-        console.log(state.repurchaseOrderArray[id])
+        // console.log(state.repurchaseOrderArray[id])
         var payload = JSON.stringify(state.repurchaseOrderArray[id]);
         fetch(`${url}repurchase/${state.repurchaseOrderArray[id].public_id}`, {
             method: 'PUT',
@@ -159,13 +159,16 @@ export default function Repurchase() {
         return dataStrings
     }
 
+    const formattedNow = () => {
+        var now = new Date()
+        return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+    }
+
     const exportCSV = () => {
         var selectedOrder = getSelectedOrder()
         if (!selectedOrder.length) return
-        console.log(constructExportCSV(selectedOrder))
-        const blob = new Blob(["\ufeff",constructExportCSV(selectedOrder)], { type: 'text/csv' })
-        console.log(blob)
-        const a = document.createElement('a')
+        const blob = new Blob(["\ufeff", constructExportCSV(selectedOrder)], { type: 'text/csv' })
+        const a = document.createElement('a');
         a.setAttribute('hidden', '')
         a.setAttribute('href', window.URL.createObjectURL(blob))
         a.setAttribute('download', 'download.csv')
@@ -173,6 +176,25 @@ export default function Repurchase() {
         a.click()
         document.body.removeChild(a)
         setToggle(!toggle)
+    }
+
+    const createMail = () => {
+        var selectedOrder = getSelectedOrder();
+        if (!selectedOrder.length) return
+        var data = selectedOrder.map(id => state.repurchaseOrderArray[id]);
+        var message = data.map(order => `%0D%0A學生：${order.student_name}%0D%0A聯絡電話：${order.phone_no}%0D%0A${order.school} 升${order.grade}%0D%0A${order.remarks}`)
+            .join('%0D%0A%0D%0A');
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', `mailto:%20?body=${message}&subject=小學補購`);
+        a.setAttribute('download', 'download.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        selectedOrder.forEach(id => {
+            changeOrderState(id, {...state.repurchaseOrderArray[id], arrived_date: formattedNow()});
+            onSubmit(id);
+        });
     }
 
     useEffect(() => {
@@ -193,7 +215,7 @@ export default function Repurchase() {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
                 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossOrigin="anonymous" />
             <Header />
-            <div className="container-lg" style={{marginTop: "10vh"}}>
+            <div className="container-lg" style={{ marginTop: "10vh" }}>
                 {
                     state.loading
                         ? null
@@ -218,11 +240,15 @@ export default function Repurchase() {
                                     <div>
                                         <button className="btn btn-success" onClick={exportCSV}>Export CSV</button>
                                     </div>
+                                    <div>
+                                        <button className="btn btn-light" onClick={createMail}>Send Mail</button>
+                                    </div>
                                     <div className="">
                                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
                                             onClick={() => {
                                                 removeChange();
-                                                setNewOrder(true)}
+                                                setNewOrder(true)
+                                            }
                                             }
                                         >
                                             <i className="fas fa-plus"></i>

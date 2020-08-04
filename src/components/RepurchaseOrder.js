@@ -20,7 +20,7 @@ export const RepurchaseOrder = ({
         if (!datetime) {
             return null
         }
-        var dateJS = new Date(datetime)
+        var dateJS = new Date(datetime.replace(' ', 'T'))
         return `${(dateJS.getMonth() + 1).toString().padStart(2, "0")}-${(dateJS.getDate()).toString().padStart(2, "0")}`
     }
     const handleKeyPress = e => {
@@ -113,7 +113,7 @@ export const RepurchaseOrder = ({
                                     </option>
                                     <option value={formattedNow()}>
                                         {
-                                            getDate(Date.now())
+                                            getDate(new Date().toISOString().slice(0, 10))
                                         }
                                     </option>
                                     <option value={""}>取消</option>
@@ -133,7 +133,7 @@ export const RepurchaseOrder = ({
                                     </option>
                                     <option value={formattedNow()}>
                                         {
-                                            getDate(Date.now())
+                                            getDate(new Date().toISOString().slice(0, 10))
                                         }
                                     </option>
                                     <option value={""}>取消</option>
