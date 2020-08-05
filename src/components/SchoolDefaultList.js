@@ -5,7 +5,7 @@ import loadingGIF from '../data/loading.gif';
 export const SchoolDefaultList = () => {
 
 
-    const { schoolList, loadBooklist } = useContext(GlobalContext);
+    const { schoolList, loadBooklist, schoolDetails, changeDiscount } = useContext(GlobalContext);
     const isSet = !(schoolList == null || Object.keys(schoolList).length === 0)
     useEffect(() => {
         if (isSet) {
@@ -16,7 +16,22 @@ export const SchoolDefaultList = () => {
             loadBooklist({
                 schoolId: idList[0],
                 year: form[0]
-            })
+            });
+            changeDiscount(schoolDetails.discount);
+            document.querySelectorAll('.radio-toolbar input')
+                .forEach((btn, index) => {
+                    if (index === 0)
+                        btn.checked = true;
+                    else
+                        btn.checked = false;
+                });
+            document.querySelectorAll('.radioBtn input')
+                .forEach((btn, index) => {
+                    if (index === 0)
+                        btn.checked = true;
+                    else
+                        btn.checked = false
+                });
         }
 
     }, [isSet])

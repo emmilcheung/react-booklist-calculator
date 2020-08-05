@@ -23,14 +23,6 @@ export const PrimaryList = () => {
     }
 
     const yearButton = schoolDetails.schoolIsSet ? '' : 'none';
-
-    useEffect(() => {
-        if (schoolDetails.schoolIsSet) {
-            changeDiscount(schoolDetails.schoolDiscount);
-        }
-    }, [schoolDetails.schoolIsSet])
-
-
     //year form list button
     var formlist = []
     if (schoolList != null && schoolDetails.schoolIsSet) {

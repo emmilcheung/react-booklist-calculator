@@ -4,7 +4,7 @@ import loadingGIF from '../data/loading.gif';
 
 export const SchoolOptionList = () => {
 
-    const { schoolList, loadBooklist } = useContext(GlobalContext);
+    const { schoolList, loadBooklist, changeDiscount } = useContext(GlobalContext);
     //if fetching in global context not yet finished
     if (schoolList == null || Object.keys(schoolList).length === 0) {
         return (
@@ -20,17 +20,32 @@ export const SchoolOptionList = () => {
             // e.preventDefault();
             if (e.target.value !== 'default') {
                 var form = Object.keys(schoolList.bookList[e.target.value])
-                                        .filter(form => form !== "discount")
-                                        .filter(form => form !== "schoolName")
-                loadBooklist({ 
-                    schoolId: e.target.value, 
-                    year: form[0] 
+                    .filter(form => form !== "discount")
+                    .filter(form => form !== "schoolName")
+                loadBooklist({
+                    schoolId: e.target.value,
+                    year: form[0]
                 });
+                changeDiscount(0);
+                document.querySelectorAll('.radio-toolbar input')
+                    .forEach((btn, index) => {
+                        if(index === 0)
+                            btn.checked = true;
+                        else
+                            btn.checked = false;
+                    });
+                document.querySelectorAll('.radioBtn input')
+                    .forEach((btn, index) => {
+                        if (index === 0)
+                            btn.checked = true;
+                        else
+                            btn.checked = false;
+                    });
             }
         }
 
         const searchDropdown = Object.keys(schoolList.bookList).map(id => schoolList.bookList[id].schoolName)
-                                                               .filter(schoolName => schoolName.includes("鄭榮之"))
+            .filter(schoolName => schoolName.includes("鄭榮之"))
         return (
             <>
                 <select name="school" id="school" className="select-css" onChange={onChange}>

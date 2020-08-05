@@ -9,7 +9,7 @@ export const Transaction = ({book}) => {
 
     return (
         <li onClick={() => changeState({id : book.id, cState : !book.isChosen})} className={str+ isChosen } >
-            {book.text}<span>{sign}${book.special_price ? (book.amount) : (book.amount * (1 - discount)).toFixed(1)}</span>
+            {book.text}<span>${book.special_price ? (book.amount) : (book.amount * (1 - discount)).toFixed(1)}</span>
         </li>
 
     )
