@@ -65,6 +65,7 @@ export const SearchForm = () => {
             <div className="flex-children"></div>
             <div className={(state.warn) ? "searchForm warn" : "searchForm"}>
                 <h2>Search Here</h2>
+                <p>Add * between words for keyword (E.g. *oxford*)</p>
                 <form onSubmit={onSubmit}>
                     <div className={(state.warn) ? "form-group warn" : "form-group"}>
                         <label htmlFor="ISBN-input" className="form-label">ISBN</label>
